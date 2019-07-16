@@ -1,5 +1,6 @@
 package com.github.emilg1101.spacex.data.spacexapi.request
 
+import com.github.emilg1101.spacex.data.spacexapi.pojo.response.CompanyInfo
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.HistoricalEvent
 import io.reactivex.*
 
@@ -37,5 +38,9 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
 
     override fun getAllHistoricalEvents(): Single<List<HistoricalEvent>> {
         return api.getAllHistoricalEvents()
+    }
+
+    override fun getCompanyInfo(): Single<CompanyInfo> {
+        return api.getCompanyInfo()
     }
 }
