@@ -26,4 +26,10 @@ interface SpaceXApiRequest {
 
     @GET("dragons")
     fun getAllDragons(): Single<List<Dragon>>
+
+    @GET("landpads")
+    fun getAllLandingPads(): Single<List<LandingPad>>
+
+    @GET("launchpads")
+    fun getAllLaunchPads(): Single<List<LaunchPad>>
 }

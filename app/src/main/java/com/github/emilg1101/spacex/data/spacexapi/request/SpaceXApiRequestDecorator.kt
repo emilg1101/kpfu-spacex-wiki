@@ -62,4 +62,12 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getAllDragons(): Single<List<Dragon>> {
         return api.getAllDragons()
     }
+
+    override fun getAllLandingPads(): Single<List<LandingPad>> {
+        return api.getAllLandingPads()
+    }
+
+    override fun getAllLaunchPads(): Single<List<LaunchPad>> {
+        return api.getAllLaunchPads()
+    }
 }
