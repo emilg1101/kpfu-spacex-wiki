@@ -1,5 +1,6 @@
 package com.github.emilg1101.spacex.data.spacexapi.request
 
+import com.github.emilg1101.spacex.data.spacexapi.pojo.response.Capsule
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.CompanyInfo
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.HistoricalEvent
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.Launch
@@ -19,4 +20,7 @@ interface SpaceXApiRequest {
 
     @GET("launches/past")
     fun getPastLaunches(): Single<List<Launch>>
+
+    @GET("capsules")
+    fun getAllCapsules(): Single<List<Capsule>>
 }
