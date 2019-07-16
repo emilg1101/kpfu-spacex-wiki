@@ -44,4 +44,7 @@ interface SpaceXApiRequest {
 
     @GET("roadster")
     fun getRoadster(): Single<Roadster>
+
+    @GET("ships")
+    fun getAllShips(): Single<List<Ship>>
 }

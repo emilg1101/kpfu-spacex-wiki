@@ -86,4 +86,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getRoadster(): Single<Roadster> {
         return api.getRoadster()
     }
+
+    override fun getAllShips(): Single<List<Ship>> {
+        return api.getAllShips()
+    }
 }
