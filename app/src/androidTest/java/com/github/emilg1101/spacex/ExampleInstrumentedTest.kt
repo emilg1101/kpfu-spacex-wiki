@@ -1,4 +1,4 @@
-package com.github.emilg1101.spacexwiki
+package com.github.emilg1101.spacex
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

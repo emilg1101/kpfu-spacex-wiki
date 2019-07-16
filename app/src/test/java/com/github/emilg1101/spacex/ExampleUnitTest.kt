@@ -1,4 +1,4 @@
-package com.github.emilg1101.spacexwiki
+package com.github.emilg1101.spacex
 
 import org.junit.Test
 
