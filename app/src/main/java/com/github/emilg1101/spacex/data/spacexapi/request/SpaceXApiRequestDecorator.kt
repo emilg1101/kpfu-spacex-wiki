@@ -1,13 +1,22 @@
 package com.github.emilg1101.spacex.data.spacexapi.request
 
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.*
+import com.github.emilg1101.spacex.domain.exception.ApiUnavailableException
+import com.github.emilg1101.spacex.domain.exception.InternetConnectionException
 import io.reactivex.*
+import retrofit2.HttpException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRequest {
 
     companion object {
         private fun processApiThrowable(t: Throwable): Throwable {
-            return t
+            return when (t) {
+                is UnknownHostException, is SocketTimeoutException -> InternetConnectionException()
+                is HttpException -> ApiUnavailableException()
+                else -> t
+            }
         }
     }
 
@@ -19,75 +28,59 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
         }
     }
 
-    private class SpaceXApiRequestErrorObservableTransformer<T> : ObservableTransformer<T, T> {
-        override fun apply(upstream: Observable<T>): ObservableSource<T> {
-            return upstream.onErrorResumeNext { t: Throwable ->
-                Observable.error(processApiThrowable(t))
-            }
-        }
-    }
-
-    private class SpaceXApiRequestErrorCompletableTransformer : CompletableTransformer {
-        override fun apply(upstream: Completable): CompletableSource {
-            return upstream.onErrorResumeNext { t: Throwable ->
-                Completable.error(processApiThrowable(t))
-            }
-        }
-    }
-
     override fun getAllHistoricalEvents(): Single<List<HistoricalEvent>> {
-        return api.getAllHistoricalEvents()
+        return api.getAllHistoricalEvents().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getCompanyInfo(): Single<CompanyInfo> {
-        return api.getCompanyInfo()
+        return api.getCompanyInfo().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getUpcomingLaunches(): Single<List<Launch>> {
-        return api.getUpcomingLaunches()
+        return api.getUpcomingLaunches().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getPastLaunches(): Single<List<Launch>> {
-        return api.getPastLaunches()
+        return api.getPastLaunches().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllCapsules(): Single<List<Capsule>> {
-        return api.getAllCapsules()
+        return api.getAllCapsules().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllCores(): Single<List<Core>> {
-        return api.getAllCores()
+        return api.getAllCores().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllDragons(): Single<List<Dragon>> {
-        return api.getAllDragons()
+        return api.getAllDragons().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllLandingPads(): Single<List<LandingPad>> {
-        return api.getAllLandingPads()
+        return api.getAllLandingPads().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllLaunchPads(): Single<List<LaunchPad>> {
-        return api.getAllLaunchPads()
+        return api.getAllLaunchPads().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllMissions(): Single<List<Mission>> {
-        return api.getAllMissions()
+        return api.getAllMissions().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllPayloads(): Single<List<Payload>> {
-        return api.getAllPayloads()
+        return api.getAllPayloads().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllRockets(): Single<List<Rocket>> {
-        return api.getAllRockets()
+        return api.getAllRockets().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getRoadster(): Single<Roadster> {
-        return api.getRoadster()
+        return api.getRoadster().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 
     override fun getAllShips(): Single<List<Ship>> {
-        return api.getAllShips()
+        return api.getAllShips().compose(SpaceXApiRequestErrorSingleTransformer())
     }
 }
