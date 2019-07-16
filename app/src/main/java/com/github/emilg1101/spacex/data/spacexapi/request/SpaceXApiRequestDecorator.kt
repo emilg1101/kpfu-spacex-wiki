@@ -58,4 +58,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getAllCores(): Single<List<Core>> {
         return api.getAllCores()
     }
+
+    override fun getAllDragons(): Single<List<Dragon>> {
+        return api.getAllDragons()
+    }
 }
