@@ -1,5 +1,6 @@
 package com.github.emilg1101.spacex.data.spacexapi.request
 
+import com.github.emilg1101.spacex.data.spacexapi.pojo.response.HistoricalEvent
 import io.reactivex.*
 
 class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRequest {
@@ -32,5 +33,9 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
                 Completable.error(processApiThrowable(t))
             }
         }
+    }
+
+    override fun getAllHistoricalEvents(): Single<List<HistoricalEvent>> {
+        return api.getAllHistoricalEvents()
     }
 }
