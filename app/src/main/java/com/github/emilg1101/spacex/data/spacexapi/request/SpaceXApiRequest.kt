@@ -32,4 +32,16 @@ interface SpaceXApiRequest {
 
     @GET("launchpads")
     fun getAllLaunchPads(): Single<List<LaunchPad>>
+
+    @GET("missions")
+    fun getAllMissions(): Single<List<Mission>>
+
+    @GET("payloads")
+    fun getAllPayloads(): Single<List<Payload>>
+
+    @GET("rockets")
+    fun getAllRockets(): Single<List<Rocket>>
+
+    @GET("roadster")
+    fun getRoadster(): Single<Roadster>
 }

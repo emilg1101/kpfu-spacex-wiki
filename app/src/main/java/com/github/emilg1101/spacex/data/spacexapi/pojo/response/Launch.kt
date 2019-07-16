@@ -14,7 +14,7 @@ data class Launch(
     @SerializedName("tentative_max_precision") val tentativeMaxPrecision: String,
     @SerializedName("tbd") val tbd: Boolean,
     @SerializedName("launch_window") val launchWindow: String,
-    @SerializedName("rocket") val rocket: Rocket,
+    @SerializedName("rocket") val rocket: LaunchRocket,
     @SerializedName("ships") val ships: List<String>,
     @SerializedName("telemetry") val telemetry: Telemetry,
     @SerializedName("launch_site") val launchSite: LaunchSite,
