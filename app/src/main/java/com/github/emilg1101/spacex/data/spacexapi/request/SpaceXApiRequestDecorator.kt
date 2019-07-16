@@ -1,9 +1,6 @@
 package com.github.emilg1101.spacex.data.spacexapi.request
 
-import com.github.emilg1101.spacex.data.spacexapi.pojo.response.Capsule
-import com.github.emilg1101.spacex.data.spacexapi.pojo.response.CompanyInfo
-import com.github.emilg1101.spacex.data.spacexapi.pojo.response.HistoricalEvent
-import com.github.emilg1101.spacex.data.spacexapi.pojo.response.Launch
+import com.github.emilg1101.spacex.data.spacexapi.pojo.response.*
 import io.reactivex.*
 
 class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRequest {
@@ -56,5 +53,9 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
 
     override fun getAllCapsules(): Single<List<Capsule>> {
         return api.getAllCapsules()
+    }
+
+    override fun getAllCores(): Single<List<Core>> {
+        return api.getAllCores()
     }
 }
