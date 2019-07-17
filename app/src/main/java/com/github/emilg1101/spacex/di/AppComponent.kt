@@ -4,6 +4,7 @@ import android.app.Application
 import com.github.emilg1101.spacex.SpacexApp
 import com.github.emilg1101.spacex.data.DataModule
 import com.github.emilg1101.spacex.di.module.AppModule
+import com.github.emilg1101.spacex.presentation.PresentationModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -15,7 +16,8 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AppModule::class,
-        DataModule::class
+        DataModule::class,
+        PresentationModule::class
     ]
 )
 interface AppComponent : AndroidInjector<SpacexApp> {

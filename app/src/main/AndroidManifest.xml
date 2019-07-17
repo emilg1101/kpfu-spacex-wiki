@@ -12,7 +12,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:name=".SpacexApp">
-        <activity android:name="com.github.emilg1101.spacex.MainActivity">
+        <activity android:name="com.github.emilg1101.spacex.presentation.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
