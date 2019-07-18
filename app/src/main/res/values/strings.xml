@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpaceX Wiki</string>
+
+    <string name="bn_item_title_launches">Launches</string>
+    <string name="bn_item_title_wiki">Wiki</string>
+    <string name="bn_item_title_history">History</string>
 </resources>

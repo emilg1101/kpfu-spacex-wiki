@@ -14,10 +14,6 @@ class MainModule {
 
     @Provides
     @MainQualifier
-    fun provideMainRouter(): Router = Router()
-
-    @Provides
-    @MainQualifier
     fun provideContainerActivity(mainActivity: MainActivity): ContainerActivity = mainActivity
 
     @Provides
