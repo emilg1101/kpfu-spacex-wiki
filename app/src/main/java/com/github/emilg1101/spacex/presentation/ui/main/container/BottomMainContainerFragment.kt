@@ -11,8 +11,8 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter
 import com.github.emilg1101.spacex.R
-import com.github.emilg1101.spacex.presentation.adapter.viewpager.ViewPagerAdapter
-import com.github.emilg1101.spacex.presentation.adapter.viewpager.ViewPagerFactory
+import com.github.emilg1101.spacex.presentation.adapter.viewpager.CustomizeFragmentPagerAdapter
+import com.github.emilg1101.spacex.presentation.adapter.viewpager.FragmentPagerFactory
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiFragment
@@ -35,20 +35,24 @@ class BottomMainContainerFragment : BaseFragment(), BottomMainContainerView {
         super.onViewCreated(view, savedInstanceState)
         initBottomNavBar()
 
-        viewpager.adapter = ViewPagerAdapter(childFragmentManager).apply {
-            this.list = arrayListOf(object : ViewPagerFactory {
-                override fun getInstance(): Fragment {
-                    return LaunchesFragment.newInstance()
-                }
-            }, object : ViewPagerFactory {
-                override fun getInstance(): Fragment {
-                    return WikiFragment.newInstance()
-                }
-            }, object : ViewPagerFactory {
-                override fun getInstance(): Fragment {
-                    return HistoryFragment.newInstance()
-                }
-            })
+        viewpager.adapter = CustomizeFragmentPagerAdapter(childFragmentManager).apply {
+            this.factoryFragmentPageList = arrayListOf(
+                    object : FragmentPagerFactory {
+                        override fun getInstance(): Fragment {
+                            return LaunchesFragment.newInstance()
+                        }
+                    },
+                    object : FragmentPagerFactory {
+                        override fun getInstance(): Fragment {
+                            return WikiFragment.newInstance()
+                        }
+                    },
+                    object : FragmentPagerFactory {
+                        override fun getInstance(): Fragment {
+                            return HistoryFragment.newInstance()
+                        }
+                    }
+            )
         }
     }
 

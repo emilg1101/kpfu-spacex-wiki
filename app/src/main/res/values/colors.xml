@@ -7,4 +7,7 @@
     <color name="item_background">#212121</color>
 
     <color name="white_45">#98a4a9</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="tab_color_unselected">#b3def8</color>
 </resources>
