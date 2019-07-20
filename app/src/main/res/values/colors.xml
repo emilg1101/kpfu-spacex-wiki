@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">@color/chinese_black</color>
+    <color name="colorPrimaryDark">@color/chinese_black</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="item_background">#212121</color>
+    <color name="textColor">@color/white</color>
+
+    <color name="navigation_item_background">@color/chinese_black</color>
+    <color name="navigation_item_foreground">@color/white</color>
 
     <color name="white_45">#98a4a9</color>
+
+    <color name="chinese_black">#0F1112</color>
+    <color name="eerie_black">#181C1F</color>
     <color name="white">#FFFFFF</color>
+    <color name="dark_gunmetal">#22272B</color>
+    
+    <color name="midnight_blue">#005288</color>
+    <color name="metallic_silver">#A7A9AC</color>
 
     <color name="tab_color_unselected">#b3def8</color>
+
 </resources>

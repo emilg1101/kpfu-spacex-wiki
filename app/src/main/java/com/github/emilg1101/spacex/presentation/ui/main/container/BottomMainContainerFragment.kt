@@ -1,18 +1,14 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
 import android.view.View
-import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.adapter.viewpager.CustomizeFragmentPagerAdapter
 import com.github.emilg1101.spacex.presentation.adapter.viewpager.FragmentPagerFactory
+import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiFragment
@@ -61,19 +57,14 @@ class BottomMainContainerFragment : BaseFragment(), BottomMainContainerView {
     }
 
     private fun initBottomNavBar() {
-        bottom_bar.defaultBackgroundColor = ContextCompat.getColor(requireContext(), R.color.item_background)
-        bottom_bar.accentColor = Color.parseColor("#ffffff")
-        bottom_bar.inactiveColor = Color.parseColor("#d2e6f0")
-        bottom_bar.setNotificationBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
-        bottom_bar.titleState = AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE_FORCE
-
-        val navigationAdapter = AHBottomNavigationAdapter(activity, R.menu.bottombar_menu)
-        navigationAdapter.setupWithBottomNavigation(bottom_bar)
-
-        bottom_bar.isBehaviorTranslationEnabled = false
-
-        bottom_bar.setOnTabSelectedListener { position, _ ->
-            presenter.onNavigationItemClick(position)
+        bottom_bar.setOnNavigationItemSelectedListener {
+            presenter.onNavigationItemClick(
+                    when (it.itemId) {
+                        R.id.action_item_launches -> 0
+                        R.id.action_item_wiki -> 1
+                        else -> 2
+                    }
+            )
             true
         }
     }

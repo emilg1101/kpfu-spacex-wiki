@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.github.emilg1101.spacex"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -72,7 +72,6 @@ dependencies {
 
     //Multidex
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     //Moxy
     implementation 'com.arello-mobile:moxy:1.5.5'
@@ -82,7 +81,4 @@ dependencies {
 
     //Cicerone
     implementation 'ru.terrakok.cicerone:cicerone:4.0.2'
-
-    //Bottom Navigation
-    implementation 'com.aurelhubert:ahbottomnavigation:2.2.0'
 }
