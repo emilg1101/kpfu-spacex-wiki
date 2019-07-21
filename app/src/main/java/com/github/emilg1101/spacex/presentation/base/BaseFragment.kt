@@ -16,24 +16,26 @@ import javax.inject.Inject
 
 abstract class BaseFragment : MvpAppCompatFragment(), HasSupportFragmentInjector, BaseView {
 
-	@field:Inject
-	lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    @field:Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
-	override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-		return dispatchingAndroidInjector
-	}
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return dispatchingAndroidInjector
+    }
 
     abstract val contentLayout: Int
 
-	val baseActivity get() = activity as? AppCompatActivity
+    val baseActivity get() = activity as? AppCompatActivity
 
-	override fun onAttach(context: Context) {
-		AndroidSupportInjection.inject(this)
-		super.onAttach(context)
-	}
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(contentLayout, container, false)
 
-    open fun onBackPressed() {}
+    open fun onBackPressed(): Boolean {
+        return false
+    }
 }

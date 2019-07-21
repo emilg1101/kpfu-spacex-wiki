@@ -69,6 +69,18 @@ class BottomMainContainerFragment : BaseFragment(), BottomMainContainerView {
         }
     }
 
+    override fun onBackPressed(): Boolean {
+        val fragment = childFragmentManager.fragments.find {
+            viewpager.currentItem == 0 && it is LaunchesFragment
+                    || viewpager.currentItem == 1 && it is WikiFragment
+                    || viewpager.currentItem == 2 && it is HistoryFragment
+        }
+        if (fragment is BaseFragment) {
+            return fragment.onBackPressed()
+        }
+        return false
+    }
+
     override val contentLayout = R.layout.fragment_bottom_main_container
 
     companion object {
