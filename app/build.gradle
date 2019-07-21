@@ -81,4 +81,7 @@ dependencies {
 
     //Cicerone
     implementation 'ru.terrakok.cicerone:cicerone:4.0.2'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

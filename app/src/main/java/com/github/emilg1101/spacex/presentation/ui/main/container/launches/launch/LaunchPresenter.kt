@@ -16,5 +16,4 @@ class LaunchPresenter @Inject constructor() : BasePresenter<LaunchView>() {
     override fun onFirstViewAttach() {
         viewState.setToolbarTitle("Launch")
     }
-
 }

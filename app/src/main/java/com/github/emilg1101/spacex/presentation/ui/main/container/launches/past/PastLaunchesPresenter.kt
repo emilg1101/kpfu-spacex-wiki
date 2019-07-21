@@ -17,7 +17,7 @@ class PastLaunchesPresenter @Inject constructor() : BasePresenter<PastLaunchesVi
 
     override fun onFirstViewAttach() {
         viewState.setLaunches(arrayListOf(
-                PastLaunchItemModel("", "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", "2019-02-22T01:45:00.000Z", 75)
+                PastLaunchItemModel("https://images2.imgbox.com/4b/bd/d8UxLh4q_o.png", "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", "2019-02-22T01:45:00.000Z", 75)
         ))
     }
 

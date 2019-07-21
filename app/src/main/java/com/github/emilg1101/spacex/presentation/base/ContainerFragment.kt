@@ -21,15 +21,6 @@ abstract class ContainerFragment : BaseFragment() {
                     savedInstanceState: Bundle?
             ) {
                 super.onFragmentViewCreated(fm, f, v, savedInstanceState)
-                /*if (f is MoxyFragment) {
-                    val stackSize = supportFragmentManager.backStackEntryCount
-                    val toolbar = f.getToolbar()
-                    setSupportActionBar(toolbar)
-                    onFragmentScreenChanged(stackSize)
-                    while (actionBarRunnableQueue.isNotEmpty()) {
-                        actionBarRunnableQueue.poll().run()
-                    }
-                }*/
                 if (f is HasToolbar) {
                     baseActivity?.setSupportActionBar(f.getToolbar())
                     baseActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)

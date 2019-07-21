@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.model.PastLaunchItemModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_launch.view.*
 
 class PastLaunchesAdapter : RecyclerView.Adapter<PastLaunchesAdapter.LaunchViewHolder>() {
@@ -36,6 +37,10 @@ class PastLaunchesAdapter : RecyclerView.Adapter<PastLaunchesAdapter.LaunchViewH
         fun bindView() = with(itemView) {
             text_mission.text = items[adapterPosition].mission
             text_launch_time.text = items[adapterPosition].launchTime
+
+            items[adapterPosition].patch.takeIf { it.isNotEmpty() }?.also {
+                Picasso.get().load(it).into(patch)
+            }
 
             setOnClickListener {
                 onItemClick?.invoke(items[adapterPosition])
