@@ -38,4 +38,18 @@ abstract class BaseFragment : MvpAppCompatFragment(), HasSupportFragmentInjector
     open fun onBackPressed(): Boolean {
         return false
     }
+
+    override fun setToolbarTitle(text: String) {
+        activity?.let {
+            if (it is BaseView)
+                it.setToolbarTitle(text)
+        }
+    }
+
+    override fun setToolbarTitle(text: Int) {
+        activity?.let {
+            if (it is BaseView)
+                it.setToolbarTitle(text)
+        }
+    }
 }

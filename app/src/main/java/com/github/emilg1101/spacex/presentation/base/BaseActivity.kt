@@ -22,4 +22,12 @@ abstract class BaseActivity : MvpAppCompatActivity(), HasSupportFragmentInjector
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return dispatchingAndroidInjector
     }
+
+    override fun setToolbarTitle(text: String) {
+        supportActionBar?.title = text
+    }
+
+    override fun setToolbarTitle(text: Int) {
+        supportActionBar?.setTitle(text)
+    }
 }

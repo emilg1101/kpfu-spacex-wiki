@@ -13,4 +13,8 @@ class LaunchPresenter @Inject constructor() : BasePresenter<LaunchView>() {
     @field:LaunchesQualifier
     lateinit var router: Router
 
+    override fun onFirstViewAttach() {
+        viewState.setToolbarTitle("Launch")
+    }
+
 }
