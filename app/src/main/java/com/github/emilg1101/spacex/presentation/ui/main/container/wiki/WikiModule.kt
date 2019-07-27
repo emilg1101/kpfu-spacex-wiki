@@ -2,9 +2,6 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.wiki
 
 import com.github.emilg1101.spacex.presentation.base.ContainerFragment
 import com.github.emilg1101.spacex.presentation.navigation.LocalCiceroneHolder
-import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryFragment
-import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryQualifier
-import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryScope
 import dagger.Module
 import dagger.Provides
 import ru.terrakok.cicerone.Cicerone

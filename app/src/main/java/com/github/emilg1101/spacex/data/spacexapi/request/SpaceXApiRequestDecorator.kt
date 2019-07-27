@@ -3,7 +3,9 @@ package com.github.emilg1101.spacex.data.spacexapi.request
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.*
 import com.github.emilg1101.spacex.domain.exception.ApiUnavailableException
 import com.github.emilg1101.spacex.domain.exception.InternetConnectionException
-import io.reactivex.*
+import io.reactivex.Single
+import io.reactivex.SingleSource
+import io.reactivex.SingleTransformer
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException

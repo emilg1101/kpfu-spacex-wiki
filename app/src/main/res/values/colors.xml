@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/chinese_black</color>
     <color name="colorPrimaryDark">@color/chinese_black</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">@color/eerie_black</color>
 
     <color name="textColor">@color/white</color>
 

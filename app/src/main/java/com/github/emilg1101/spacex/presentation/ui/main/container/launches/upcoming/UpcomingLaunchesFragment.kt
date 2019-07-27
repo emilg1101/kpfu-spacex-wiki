@@ -3,11 +3,11 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.launches.upco
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.adapter.UpcomingLaunchesAdapter
+import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.model.UpcomingLaunchItemModel
 import kotlinx.android.synthetic.main.fragment_upcoming_launches.*
 import javax.inject.Inject

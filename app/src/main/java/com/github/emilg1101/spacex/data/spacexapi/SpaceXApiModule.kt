@@ -1,5 +1,7 @@
 package com.github.emilg1101.spacex.data.spacexapi
 
+import com.github.emilg1101.spacex.data.spacexapi.request.SpaceXApiRequest
+import com.github.emilg1101.spacex.data.spacexapi.request.SpaceXApiRequestDecorator
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers
@@ -8,8 +10,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import com.github.emilg1101.spacex.data.spacexapi.request.SpaceXApiRequest
-import com.github.emilg1101.spacex.data.spacexapi.request.SpaceXApiRequestDecorator
 import javax.inject.Singleton
 
 @Module
