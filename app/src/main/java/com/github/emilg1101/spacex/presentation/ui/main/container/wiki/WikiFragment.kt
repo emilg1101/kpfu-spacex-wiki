@@ -4,7 +4,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.base.ContainerFragment
-import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryQualifier
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import javax.inject.Inject

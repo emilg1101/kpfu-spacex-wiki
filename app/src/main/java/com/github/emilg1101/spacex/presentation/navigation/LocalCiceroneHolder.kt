@@ -2,7 +2,6 @@ package com.github.emilg1101.spacex.presentation.navigation
 
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Router
-import java.lang.Exception
 
 object LocalCiceroneHolder {
 

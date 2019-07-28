@@ -9,7 +9,8 @@ import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.adapter.viewpager.CustomizeFragmentPagerAdapter
 import com.github.emilg1101.spacex.presentation.adapter.viewpager.FragmentPagerFactory
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
-import com.github.emilg1101.spacex.presentation.ui.main.container.launches.tab.LaunchesTabFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.past.PastLaunchesFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.upcoming.UpcomingLaunchesFragment
 import kotlinx.android.synthetic.main.fragment_launches_container.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -34,7 +35,7 @@ class LaunchesContainerFragment : BaseFragment(), LaunchesContainerView {
             this.factoryFragmentPageList = arrayListOf(
                     object : FragmentPagerFactory {
                         override fun getInstance(): Fragment {
-                            return LaunchesTabFragment.newInstance()
+                            return UpcomingLaunchesFragment.newInstance()
                         }
 
                         override fun getTitle(): String {
@@ -43,7 +44,7 @@ class LaunchesContainerFragment : BaseFragment(), LaunchesContainerView {
                     },
                     object : FragmentPagerFactory {
                         override fun getInstance(): Fragment {
-                            return LaunchesTabFragment.newInstance()
+                            return PastLaunchesFragment.newInstance()
                         }
 
                         override fun getTitle(): String {

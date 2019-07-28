@@ -1,11 +1,11 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content
 
-import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.github.emilg1101.spacex.R
+import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import javax.inject.Inject
 import javax.inject.Provider
-import com.github.emilg1101.spacex.R
 
 class ContentFragment : BaseFragment(), ContentView {
 

@@ -1,6 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false">
+
+            <com.yandex.mapkit.mapview.MapView
+                android:id="@+id/mapview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_patch"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_spacex" />
+
+            <TextView
+                android:id="@+id/text_mission_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_patch"
+                app:layout_constraintTop_toTopOf="@+id/image_patch" />
+
+            <TextView
+                android:id="@+id/text_launchpad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                android:textColor="#80FFFFFF"
+                app:layout_constraintEnd_toEndOf="@+id/text_mission_name"
+                app:layout_constraintStart_toStartOf="@+id/text_mission_name"
+                app:layout_constraintTop_toBottomOf="@+id/text_mission_name" />
+
+            <TextView
+                android:id="@+id/text_launch_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/text_launchpad"
+                app:layout_constraintStart_toStartOf="@+id/text_launchpad"
+                app:layout_constraintTop_toBottomOf="@+id/text_launchpad" />
+
+            <TextView
+                android:id="@+id/text_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/text_launch_time"
+                app:layout_constraintStart_toStartOf="@+id/image_patch"
+                app:layout_constraintTop_toBottomOf="@+id/text_launch_time" />
+
+            <TextView
+                android:id="@+id/label_rocket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Rocket:"
+                app:layout_constraintStart_toStartOf="@+id/text_details"
+                app:layout_constraintTop_toBottomOf="@+id/text_details" />
+
+            <TextView
+                android:id="@+id/text_rocket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="@+id/label_rocket"
+                app:layout_constraintEnd_toStartOf="@+id/btn_rocket"
+                app:layout_constraintStart_toEndOf="@+id/label_rocket"
+                app:layout_constraintTop_toTopOf="@+id/label_rocket" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/btn_rocket"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="More"
+                app:layout_constraintBottom_toBottomOf="@+id/text_rocket"
+                app:layout_constraintEnd_toEndOf="@+id/text_details"
+                app:layout_constraintTop_toTopOf="@+id/text_rocket" />
+
+            <TextView
+                android:id="@+id/label_cores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Cores"
+                android:textSize="22sp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/label_rocket"
+                app:layout_constraintTop_toBottomOf="@+id/label_rocket" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_cores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_rocket"
+                app:layout_constraintStart_toStartOf="@+id/label_cores"
+                app:layout_constraintTop_toBottomOf="@+id/label_cores" />
+
+            <TextView
+                android:id="@+id/label_payloads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Payloads"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="@+id/list_cores"
+                app:layout_constraintTop_toBottomOf="@+id/list_cores" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_payloads"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_rocket"
+                app:layout_constraintStart_toStartOf="@+id/label_payloads"
+                app:layout_constraintTop_toBottomOf="@+id/label_payloads" />
+
+            <TextView
+                android:id="@+id/label_links"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Links"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@+id/list_payloads"
+                app:layout_constraintStart_toStartOf="@+id/list_payloads" />
+
+            <android.support.design.chip.ChipGroup
+                android:id="@+id/list_links"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@id/label_images"
+                app:layout_constraintEnd_toEndOf="@+id/btn_rocket"
+                app:layout_constraintStart_toStartOf="@+id/label_links"
+                app:layout_constraintTop_toBottomOf="@+id/label_links" />
+
+            <TextView
+                android:id="@+id/label_images"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Images"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@+id/list_links"
+                app:layout_constraintStart_toStartOf="@+id/list_links" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_images"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_rocket"
+                app:layout_constraintStart_toStartOf="@+id/label_images"
+                app:layout_constraintTop_toBottomOf="@+id/label_images" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

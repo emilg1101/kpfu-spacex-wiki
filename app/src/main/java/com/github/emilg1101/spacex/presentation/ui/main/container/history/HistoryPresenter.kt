@@ -1,7 +1,7 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.history
 
-import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.arellomobile.mvp.InjectViewState
+import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.timeline.TimelineScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
