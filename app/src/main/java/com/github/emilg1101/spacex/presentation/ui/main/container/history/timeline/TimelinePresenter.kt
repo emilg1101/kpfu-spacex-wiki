@@ -7,4 +7,7 @@ import javax.inject.Inject
 @InjectViewState
 class TimelinePresenter @Inject constructor() : BasePresenter<TimelineView>() {
 
+    override fun onFirstViewAttach() {
+        viewState.setToolbarTitle("History")
+    }
 }

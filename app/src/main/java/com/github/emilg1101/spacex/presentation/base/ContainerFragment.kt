@@ -23,7 +23,7 @@ abstract class ContainerFragment : BaseFragment() {
                 super.onFragmentViewCreated(fm, f, v, savedInstanceState)
                 if (f is HasToolbar) {
                     baseActivity?.setSupportActionBar(f.getToolbar())
-                    baseActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                    baseActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(f.enableBackPressed())
                 }
             }
 
