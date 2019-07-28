@@ -21,7 +21,7 @@ class UpcomingLaunchesPresenter @Inject constructor() : BasePresenter<UpcomingLa
         ))
     }
 
-    fun openLaunch(flightNumber: Int) {
-        router.navigateTo(LaunchScreen(flightNumber))
+    fun openLaunch(model: UpcomingLaunchItemModel) {
+        router.navigateTo(LaunchScreen(model.flightNumber))
     }
 }

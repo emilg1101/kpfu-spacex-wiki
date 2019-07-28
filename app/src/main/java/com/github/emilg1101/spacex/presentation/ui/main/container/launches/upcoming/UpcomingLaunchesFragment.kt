@@ -38,7 +38,7 @@ class UpcomingLaunchesFragment : BaseFragment(), UpcomingLaunchesView {
     override fun setLaunches(items: List<UpcomingLaunchItemModel>) {
         adapter.items = items
         adapter.onItemClick = {
-            presenter.openLaunch(it.flightNumber)
+            presenter.openLaunch(it)
         }
     }
 

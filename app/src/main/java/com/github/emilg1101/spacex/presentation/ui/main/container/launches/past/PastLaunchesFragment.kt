@@ -38,7 +38,7 @@ class PastLaunchesFragment : BaseFragment(), PastLaunchesView {
     override fun setLaunches(items: List<PastLaunchItemModel>) {
         adapter.items = items
         adapter.onItemClick = {
-            presenter.openLaunch(it.flightNumber)
+            presenter.openLaunch(it)
         }
     }
 

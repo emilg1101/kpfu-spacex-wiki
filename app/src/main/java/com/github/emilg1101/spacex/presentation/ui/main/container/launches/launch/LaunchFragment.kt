@@ -1,6 +1,7 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch
 
 import android.os.Bundle
+import android.support.design.chip.Chip
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -9,7 +10,6 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.adapter.LaunchCoresAdapter
 import com.github.emilg1101.spacex.presentation.adapter.LaunchImagesAdapter
-import com.github.emilg1101.spacex.presentation.adapter.LaunchLinksAdapter
 import com.github.emilg1101.spacex.presentation.adapter.LaunchPayloadsAdapter
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
@@ -23,6 +23,7 @@ import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import kotlinx.android.synthetic.main.fragment_launch.*
 import kotlinx.android.synthetic.main.layout_toolbar.toolbar
+import java.lang.IllegalArgumentException
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -42,9 +43,6 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
 
     @field:Inject
     lateinit var launchPayloadsAdapter: LaunchPayloadsAdapter
-
-    @field:Inject
-    lateinit var launchLinksAdapter: LaunchLinksAdapter
 
     @field:Inject
     lateinit var launchImagesAdapter: LaunchImagesAdapter
@@ -77,8 +75,6 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         list_cores.layoutManager = LinearLayoutManager(context)
         list_payloads.adapter = launchPayloadsAdapter
         list_payloads.layoutManager = LinearLayoutManager(context)
-        list_links.adapter = launchLinksAdapter
-        list_links.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         list_images.adapter = launchImagesAdapter
         list_images.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
@@ -144,9 +140,13 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
             label_links.visibility = View.GONE
             list_links.visibility = View.GONE
         }
-        launchLinksAdapter.items = items
-        launchLinksAdapter.onItemClick = {
-            presenter.openLink(it)
+        items.forEach { model ->
+            val chip = Chip(context)
+            chip.text = model.title
+            chip.setOnClickListener {
+                presenter.openLink(model)
+            }
+            list_links.addView(chip)
         }
     }
 
@@ -170,11 +170,15 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         MapKitFactory.getInstance().onStart()
     }
 
+    fun getFlightNumber(): Int {
+        return arguments?.getInt(FLIGHT_NUMBER) ?: throw IllegalArgumentException()
+    }
+
     companion object {
 
         val TAG: String = LaunchFragment::class.java.name
 
-        const val FLIGHT_NUMBER = "flight_number"
+        private const val FLIGHT_NUMBER = "flight_number"
 
         fun newInstance(flightNumber: Int) = LaunchFragment().also {
             it.arguments = Bundle().apply {

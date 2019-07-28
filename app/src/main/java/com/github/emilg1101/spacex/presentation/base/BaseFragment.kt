@@ -10,22 +10,22 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-abstract class BaseFragment : MvpAppCompatFragment(), HasSupportFragmentInjector, BaseView {
+abstract class BaseFragment : MvpAppCompatFragment(), HasAndroidInjector, BaseView {
 
     @field:Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return dispatchingAndroidInjector
-    }
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
     abstract val contentLayout: Int
 
     val baseActivity get() = activity as? AppCompatActivity
+
+    override fun androidInjector(): AndroidInjector<Any> {
+        return dispatchingAndroidInjector
+    }
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)

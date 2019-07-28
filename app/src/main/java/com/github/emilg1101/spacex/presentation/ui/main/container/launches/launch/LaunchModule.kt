@@ -2,7 +2,6 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.launches.laun
 
 import com.github.emilg1101.spacex.presentation.adapter.LaunchCoresAdapter
 import com.github.emilg1101.spacex.presentation.adapter.LaunchImagesAdapter
-import com.github.emilg1101.spacex.presentation.adapter.LaunchLinksAdapter
 import com.github.emilg1101.spacex.presentation.adapter.LaunchPayloadsAdapter
 import com.github.emilg1101.spacex.presentation.navigation.LocalCiceroneHolder
 import dagger.Module
@@ -16,13 +15,14 @@ class LaunchModule {
     fun provideRouter(launchFragment: LaunchFragment) = LocalCiceroneHolder.getCicerone(launchFragment::class.java.name).router
 
     @Provides
+    @LaunchQualifier
+    fun provideFlightNumber(launchFragment: LaunchFragment): Int = launchFragment.getFlightNumber()
+
+    @Provides
     fun provideLaunchCoresAdapter(): LaunchCoresAdapter = LaunchCoresAdapter()
 
     @Provides
     fun provideLaunchPayloadsAdapter(): LaunchPayloadsAdapter = LaunchPayloadsAdapter()
-
-    @Provides
-    fun provideLaunchLinksAdapter(): LaunchLinksAdapter = LaunchLinksAdapter()
 
     @Provides
     fun provideLaunchImagesAdapter(): LaunchImagesAdapter = LaunchImagesAdapter()

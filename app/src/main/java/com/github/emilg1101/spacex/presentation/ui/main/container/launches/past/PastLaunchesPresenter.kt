@@ -21,7 +21,7 @@ class PastLaunchesPresenter @Inject constructor() : BasePresenter<PastLaunchesVi
         ))
     }
 
-    fun openLaunch(flightNumber: Int) {
-        router.navigateTo(LaunchScreen(flightNumber))
+    fun openLaunch(model: PastLaunchItemModel) {
+        router.navigateTo(LaunchScreen(model.flightNumber))
     }
 }
