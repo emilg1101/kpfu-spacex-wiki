@@ -32,4 +32,8 @@ interface LaunchView : BaseView {
     fun showLinks(items: List<LinkLaunchItemModel>)
 
     fun showImages(items: List<String>)
+
+    fun setRocketId(id: String)
+
+    fun setLaunchPadId(id: String)
 }

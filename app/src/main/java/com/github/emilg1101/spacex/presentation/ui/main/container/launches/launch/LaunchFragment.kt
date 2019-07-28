@@ -158,6 +158,18 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         launchImagesAdapter.items = items
     }
 
+    override fun setRocketId(id: String) {
+        btn_rocket.setOnClickListener {
+            presenter.openRocket(id)
+        }
+    }
+
+    override fun setLaunchPadId(id: String) {
+        text_launchpad.setOnClickListener {
+            presenter.openLaunchPad(id)
+        }
+    }
+
     override fun onStop() {
         super.onStop()
         mapview.onStop()

@@ -1,6 +1,7 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch
 
 import com.arellomobile.mvp.InjectViewState
+import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.CoreLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.LaunchModel
@@ -57,9 +58,11 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
         viewState.showPayloads(model.payloads)
         viewState.showLinks(model.links)
         viewState.showImages(model.images)
+        viewState.setRocketId(model.rocketId)
+        viewState.setLaunchPadId(model.launchPadId)
     }
 
-    fun openRocket() {
+    fun openRocket(id: String) {
 
     }
 
@@ -72,6 +75,10 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
     }
 
     fun openLink(link: LinkLaunchItemModel) {
+        router.navigateTo(ExternalLinkScreen(link.link))
+    }
+
+    fun openLaunchPad(id: String) {
 
     }
 }
