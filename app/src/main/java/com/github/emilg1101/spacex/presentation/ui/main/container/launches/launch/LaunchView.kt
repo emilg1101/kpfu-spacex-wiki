@@ -36,4 +36,6 @@ interface LaunchView : BaseView {
     fun setRocketId(id: String)
 
     fun setLaunchPadId(id: String)
+
+    fun showRemind()
 }

@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.support.design.chip.Chip
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -23,7 +26,6 @@ import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import kotlinx.android.synthetic.main.fragment_launch.*
 import kotlinx.android.synthetic.main.layout_toolbar.toolbar
-import java.lang.IllegalArgumentException
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -47,12 +49,15 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     @field:Inject
     lateinit var launchImagesAdapter: LaunchImagesAdapter
 
+    private var menu: Menu? = null
+
     override val contentLayout = R.layout.fragment_launch
 
     override fun getToolbar(): Toolbar = toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         MapKitFactory.initialize(context)
     }
 
@@ -168,6 +173,22 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         text_launchpad.setOnClickListener {
             presenter.openLaunchPad(id)
         }
+    }
+
+    override fun showRemind() {
+        menu?.findItem(R.id.action_remind)?.isVisible = true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_launch, menu)
+        this.menu = menu
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.action_remind) {
+            presenter.onRemind()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStop() {

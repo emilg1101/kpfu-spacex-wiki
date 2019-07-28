@@ -2,13 +2,10 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.launches.laun
 
 import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
+import com.github.emilg1101.spacex.presentation.LaunchEventScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
-import com.github.emilg1101.spacex.presentation.model.CoreLaunchItemModel
-import com.github.emilg1101.spacex.presentation.model.LaunchModel
-import com.github.emilg1101.spacex.presentation.model.LinkLaunchItemModel
-import com.github.emilg1101.spacex.presentation.model.PayloadLaunchItemModel
+import com.github.emilg1101.spacex.presentation.model.*
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesQualifier
-import com.yandex.mapkit.atom.Link
 import com.yandex.mapkit.geometry.Point
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -80,5 +77,9 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
 
     fun openLaunchPad(id: String) {
 
+    }
+
+    fun onRemind() {
+        router.navigateTo(LaunchEventScreen(LaunchEventModel(1550799900, "Nusantara Satu (PSN-6) / GTO-1 / Beresheet", "", "CCAFS SLC 40")))
     }
 }

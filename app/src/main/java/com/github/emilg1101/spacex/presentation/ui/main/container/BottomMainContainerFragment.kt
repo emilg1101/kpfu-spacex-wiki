@@ -31,6 +31,7 @@ class BottomMainContainerFragment : BaseFragment(), BottomMainContainerView {
         super.onViewCreated(view, savedInstanceState)
         initBottomNavBar()
 
+        viewpager.offscreenPageLimit = 2
         viewpager.adapter = CustomizeFragmentPagerAdapter(childFragmentManager).apply {
             this.factoryFragmentPageList = arrayListOf(
                     object : FragmentPagerFactory {
