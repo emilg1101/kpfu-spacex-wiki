@@ -5,7 +5,6 @@ import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.LaunchEventScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.*
-import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesQualifier
 import com.yandex.mapkit.geometry.Point
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -14,7 +13,7 @@ import javax.inject.Inject
 class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int) : BasePresenter<LaunchView>() {
 
     @field:Inject
-    @field:LaunchesQualifier
+    @field:LaunchQualifier
     lateinit var router: Router
 
     override fun onFirstViewAttach() {

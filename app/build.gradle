@@ -93,4 +93,7 @@ dependencies {
 
     //MapKit
     implementation 'com.yandex.android:mapkit:3.3.1'
+
+    //Timeline
+    implementation 'com.github.vipulasri:timelineview:1.1.0'
 }
