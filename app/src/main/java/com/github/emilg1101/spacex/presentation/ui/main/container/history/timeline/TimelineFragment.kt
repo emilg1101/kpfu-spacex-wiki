@@ -3,9 +3,7 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.history.timel
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.emilg1101.spacex.R
@@ -37,6 +35,11 @@ class TimelineFragment : BaseFragment(), TimelineView, HasToolbar {
 
     override fun enableBackPressed(): Boolean = false
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,6 +55,17 @@ class TimelineFragment : BaseFragment(), TimelineView, HasToolbar {
         historyAdapter.onLinkClick = {
             presenter.openLink(it)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_timeline, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.action_about) {
+            presenter.openAboutCompany()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

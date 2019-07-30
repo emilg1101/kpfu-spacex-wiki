@@ -5,6 +5,7 @@ import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.HistoricalEventItemModel
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryQualifier
+import com.github.emilg1101.spacex.presentation.ui.main.container.history.companyinfo.CompanyInfoScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -66,5 +67,9 @@ class TimelinePresenter @Inject constructor() : BasePresenter<TimelineView>() {
 
     fun openLaunch(model: HistoricalEventItemModel) {
         router.navigateTo(LaunchScreen(model.flightNumber))
+    }
+
+    fun openAboutCompany() {
+        router.navigateTo(CompanyInfoScreen())
     }
 }
