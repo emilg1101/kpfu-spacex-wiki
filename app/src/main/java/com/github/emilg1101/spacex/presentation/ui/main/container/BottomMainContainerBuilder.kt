@@ -8,6 +8,9 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.launches.Launc
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.LaunchesScope
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScope
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiBuilder
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiModule
@@ -29,4 +32,8 @@ internal abstract class BottomMainContainerBuilder {
     @ContributesAndroidInjector(modules = [HistoryModule::class, HistoryBuilder::class])
     @HistoryScope
     abstract fun buildHistoryFragment(): HistoryFragment
+
+    /*@ContributesAndroidInjector(modules = [LaunchModule::class])
+    @LaunchScope
+    abstract fun provideLaunchFragment(): LaunchFragment*/
 }

@@ -4,4 +4,6 @@ import android.support.v7.widget.Toolbar
 
 interface HasToolbar {
     fun getToolbar(): Toolbar?
+
+    fun enableBackPressed(): Boolean = true
 }

@@ -23,5 +23,33 @@
     <style name="ToolbarText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textColor">@color/textColor</item>
     </style>
+    
+    <!-- Text-->
+    <style name="Text" parent="TextAppearance.AppCompat">
+    </style>
+
+    <style name="Text.Small" parent="Text">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+    </style>
+
+    <style name="Text.Small.Secondary">
+        <item name="android:textColor">@color/white_45</item>
+    </style>
+
+    <style name="Text.Medium">
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+    </style>
+
+    <style name="Text.Medium.Secondary">
+        <item name="android:textColor">@color/white_45</item>
+    </style>
+
+    <style name="Text.Large">
+        <item name="android:textSize">@dimen/textSizeLarge</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+    </style>
 
 </resources>
