@@ -32,8 +32,4 @@ internal abstract class BottomMainContainerBuilder {
     @ContributesAndroidInjector(modules = [HistoryModule::class, HistoryBuilder::class])
     @HistoryScope
     abstract fun buildHistoryFragment(): HistoryFragment
-
-    /*@ContributesAndroidInjector(modules = [LaunchModule::class])
-    @LaunchScope
-    abstract fun provideLaunchFragment(): LaunchFragment*/
 }

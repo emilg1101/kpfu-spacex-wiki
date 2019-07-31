@@ -180,13 +180,17 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.menu_launch, menu)
+        if (menu?.size() == 0) {
+            inflater?.inflate(R.menu.menu_launch, menu)
+        }
         this.menu = menu
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_remind) {
             presenter.onRemind()
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
