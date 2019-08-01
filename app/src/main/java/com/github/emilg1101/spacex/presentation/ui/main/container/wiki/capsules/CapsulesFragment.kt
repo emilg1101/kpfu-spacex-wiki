@@ -1,14 +1,20 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules
 
+import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
-import com.github.emilg1101.spacex.presentation.base.BaseFragment
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.github.emilg1101.spacex.R
+import com.github.emilg1101.spacex.presentation.adapter.CapsulesAdapter
+import com.github.emilg1101.spacex.presentation.base.BaseFragment
+import com.github.emilg1101.spacex.presentation.base.HasToolbar
+import com.github.emilg1101.spacex.presentation.model.CapsuleItemModel
+import kotlinx.android.synthetic.main.fragment_capsules.*
+import kotlinx.android.synthetic.main.layout_toolbar.*
 import javax.inject.Inject
 import javax.inject.Provider
-import com.github.emilg1101.spacex.R
-import com.github.emilg1101.spacex.presentation.base.HasToolbar
-import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class CapsulesFragment : BaseFragment(), CapsulesView, HasToolbar {
 
@@ -21,9 +27,26 @@ class CapsulesFragment : BaseFragment(), CapsulesView, HasToolbar {
     @field:Inject
     lateinit var presenterProvider: Provider<CapsulesPresenter>
 
+    @field:Inject
+    lateinit var capsulesAdapter: CapsulesAdapter
+
     override val contentLayout: Int = R.layout.fragment_capsules
 
     override fun getToolbar(): Toolbar = toolbar
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
+        list.adapter = capsulesAdapter
+        list.layoutManager = LinearLayoutManager(context)
+    }
+
+    override fun showCapsules(items: List<CapsuleItemModel>) {
+        capsulesAdapter.items = items
+        capsulesAdapter.onItemClick = {
+            presenter.openCapsule(it)
+        }
+    }
 
     companion object {
 
