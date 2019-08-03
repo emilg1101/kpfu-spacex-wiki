@@ -6,9 +6,9 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 interface BaseView: MvpView {
 
-    @StateStrategyType(OneExecutionStateStrategy::class)
+    //@StateStrategyType(OneExecutionStateStrategy::class)
     fun setToolbarTitle(text: String)
 
-    @StateStrategyType(OneExecutionStateStrategy::class)
+    //@StateStrategyType(OneExecutionStateStrategy::class)
     fun setToolbarTitle(text: Int)
 }

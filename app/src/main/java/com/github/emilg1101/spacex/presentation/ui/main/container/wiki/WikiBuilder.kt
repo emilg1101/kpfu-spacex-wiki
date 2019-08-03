@@ -9,6 +9,9 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentScope
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -26,4 +29,8 @@ internal abstract class WikiBuilder {
     @ContributesAndroidInjector(modules = [CapsuleModule::class])
     @CapsuleScope
     abstract fun provideCapsuleFragment(): CapsuleFragment
+
+    @ContributesAndroidInjector(modules = [MissionsModule::class])
+    @MissionsScope
+    abstract fun provideMissionsFragment(): MissionsFragment
 }
