@@ -4,6 +4,7 @@ import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.model.MissionItemModel
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiQualifier
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.mission.MissionScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -19,6 +20,6 @@ class MissionsPresenter @Inject constructor() : BasePresenter<MissionsView>() {
     }
 
     fun openMission(model: MissionItemModel) {
-
+        router.navigateTo(MissionScreen(model.id))
     }
 }
