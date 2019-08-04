@@ -17,6 +17,13 @@ class MissionsPresenter @Inject constructor() : BasePresenter<MissionsView>() {
 
     override fun onFirstViewAttach() {
         viewState.setToolbarTitle("Missions")
+        viewState.showMissions(arrayListOf(
+            MissionItemModel("F3364BF", "Iridium NEXT"),
+            MissionItemModel("F3364BF", "Iridium NEXT"),
+            MissionItemModel("F3364BF", "Iridium NEXT"),
+            MissionItemModel("F3364BF", "Iridium NEXT"),
+            MissionItemModel("F3364BF", "Iridium NEXT")
+        ))
     }
 
     fun openMission(model: MissionItemModel) {
