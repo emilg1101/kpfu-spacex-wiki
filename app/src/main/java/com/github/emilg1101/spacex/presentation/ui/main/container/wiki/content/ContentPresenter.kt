@@ -4,6 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiQualifier
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.CapsulesScreen
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -23,7 +24,7 @@ class ContentPresenter @Inject constructor() : BasePresenter<ContentView>() {
     }
 
     fun openMissions() {
-
+        router.navigateTo(MissionsScreen())
     }
 
     fun openPayloads() {
