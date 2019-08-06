@@ -18,6 +18,9 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.PayloadsFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.PayloadsModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.PayloadsScope
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -47,4 +50,8 @@ internal abstract class WikiBuilder {
     @ContributesAndroidInjector(modules = [PayloadsModule::class])
     @PayloadsScope
     abstract fun providePayloadsFragment(): PayloadsFragment
+
+    @ContributesAndroidInjector(modules = [PayloadModule::class])
+    @PayloadScope
+    abstract fun providePayloadFragment(): PayloadFragment
 }

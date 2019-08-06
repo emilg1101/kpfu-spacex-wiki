@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/label_about"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="About"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/view_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_card_info"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="@id/label_about"
+                app:layout_constraintStart_toStartOf="@id/label_about"
+                app:layout_constraintTop_toBottomOf="@id/label_about">
+
+                <TextView
+                    android:id="@+id/label_serial"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Serial"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_serial"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_serial"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_serial"
+                    app:layout_constraintTop_toTopOf="@id/label_serial"
+                    tools:text="C106" />
+
+                <TextView
+                    android:id="@+id/label_customers"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Customers"
+                    app:layout_constraintStart_toStartOf="@id/label_serial"
+                    app:layout_constraintTop_toBottomOf="@id/label_serial" />
+
+                <TextView
+                    android:id="@+id/text_customers"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_customers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_customers"
+                    app:layout_constraintTop_toTopOf="@id/label_customers"
+                    tools:text="NASA (CRS)" />
+
+                <TextView
+                    android:id="@+id/label_nationality"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nationality"
+                    app:layout_constraintStart_toStartOf="@id/label_customers"
+                    app:layout_constraintTop_toBottomOf="@id/label_customers" />
+
+                <TextView
+                    android:id="@+id/text_nationality"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_nationality"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_nationality"
+                    app:layout_constraintTop_toTopOf="@id/label_nationality"
+                    tools:text="NASA (CRS)" />
+
+                <TextView
+                    android:id="@+id/label_mass"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Mass"
+                    app:layout_constraintStart_toStartOf="@id/label_nationality"
+                    app:layout_constraintTop_toBottomOf="@id/label_nationality" />
+
+                <TextView
+                    android:id="@+id/text_mass"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_mass"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_mass"
+                    app:layout_constraintTop_toTopOf="@id/label_mass"
+                    tools:text="2216" />
+
+                <TextView
+                    android:id="@+id/label_type"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Payload type"
+                    app:layout_constraintStart_toStartOf="@id/label_mass"
+                    app:layout_constraintTop_toBottomOf="@id/label_mass" />
+
+                <TextView
+                    android:id="@+id/text_type"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_type"
+                    app:layout_constraintTop_toTopOf="@id/label_type"
+                    tools:text="Dragon 1.1" />
+
+                <TextView
+                    android:id="@+id/label_reused"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Reused"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_type"
+                    app:layout_constraintTop_toBottomOf="@id/label_type" />
+
+                <TextView
+                    android:id="@+id/text_reused"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_reused"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_reused"
+                    app:layout_constraintTop_toTopOf="@id/label_reused"
+                    tools:text="true" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/label_orbit_params"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Orbit parameters"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_about" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/view_orbit_params"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_card_info"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@id/label_orbit_params"
+                app:layout_constraintStart_toStartOf="@id/label_orbit_params"
+                app:layout_constraintTop_toBottomOf="@id/label_orbit_params">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/list_orbit_params"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>
