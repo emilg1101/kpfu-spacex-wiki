@@ -54,6 +54,10 @@ class PayloadFragment : BaseFragment(), PayloadView, HasToolbar {
         text_nationality.text = nationality
     }
 
+    override fun showManufacturer(manufacturer: String) {
+        text_manufacturer.text = manufacturer
+    }
+
     override fun showMass(mass: String) {
         text_mass.text = mass
     }

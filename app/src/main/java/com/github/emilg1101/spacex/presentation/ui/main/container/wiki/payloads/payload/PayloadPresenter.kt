@@ -25,12 +25,18 @@ class PayloadPresenter @Inject constructor(@PayloadQualifier val payloadId: Stri
                 OrbitParamModel("Regime", "low-earth"),
                 OrbitParamModel("Longitude", ""),
                 OrbitParamModel("Semi Major Axis", 6657.288.toString()),
-                OrbitParamModel("Eccentricity", 0.0113888.toString())
+                OrbitParamModel("Eccentricity", 0.0113888.toString()),
+                OrbitParamModel("Periapsis", 400.toString()),
+                OrbitParamModel("Apoapsis", 500.toString()),
+                OrbitParamModel("Inclination deg", 39.toString()),
+                OrbitParamModel("Period min", ""),
+                OrbitParamModel("Lifespan years", "")
             )
         )
         viewState.showSerial(model.serial)
         viewState.showCustomers(model.customers)
         viewState.showNationality(model.nationality)
+        viewState.showManufacturer(model.manufacturer)
         viewState.showMass(model.mass)
         viewState.showType(model.type)
         viewState.showReused(model.reused)

@@ -14,6 +14,8 @@ interface PayloadView : BaseView {
 
     fun showNationality(nationality: String)
 
+    fun showManufacturer(manufacturer: String)
+
     fun showMass(mass: String)
 
     fun showType(type: String)

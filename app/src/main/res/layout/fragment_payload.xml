@@ -109,14 +109,36 @@
                     tools:text="NASA (CRS)" />
 
                 <TextView
+                    android:id="@+id/label_manufacturer"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Manufacturer"
+                    app:layout_constraintStart_toStartOf="@id/label_nationality"
+                    app:layout_constraintTop_toBottomOf="@id/label_nationality" />
+
+                <TextView
+                    android:id="@+id/text_manufacturer"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_manufacturer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_manufacturer"
+                    app:layout_constraintTop_toTopOf="@id/label_manufacturer"
+                    tools:text="NASA (CRS)" />
+
+                <TextView
                     android:id="@+id/label_mass"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Mass"
-                    app:layout_constraintStart_toStartOf="@id/label_nationality"
-                    app:layout_constraintTop_toBottomOf="@id/label_nationality" />
+                    app:layout_constraintStart_toStartOf="@id/label_manufacturer"
+                    app:layout_constraintTop_toBottomOf="@id/label_manufacturer" />
 
                 <TextView
                     android:id="@+id/text_mass"
