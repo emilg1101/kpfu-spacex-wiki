@@ -9,6 +9,9 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.content.ContentScope
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.CoresFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.CoresModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.CoresScope
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsScope
@@ -54,4 +57,8 @@ internal abstract class WikiBuilder {
     @ContributesAndroidInjector(modules = [PayloadModule::class])
     @PayloadScope
     abstract fun providePayloadFragment(): PayloadFragment
+
+    @ContributesAndroidInjector(modules = [CoresModule::class])
+    @CoresScope
+    abstract fun provideCoresFragment(): CoresFragment
 }
