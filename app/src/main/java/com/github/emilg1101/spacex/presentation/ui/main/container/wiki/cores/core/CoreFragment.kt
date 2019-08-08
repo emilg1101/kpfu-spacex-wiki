@@ -83,6 +83,10 @@ class CoreFragment : BaseFragment(), CoreView, HasToolbar {
     }
 
     override fun showMissions(items: List<MissionItemShortModel>) {
+        if (items.isEmpty()) {
+            label_missions.visibility = View.GONE
+            list_missions.visibility = View.GONE
+        }
         missionsAdapter.items = items
         missionsAdapter.onItemClick = {
             presenter.openMission(it)
