@@ -27,6 +27,9 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScope
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.RocketsFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.RocketsModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.RocketsScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -68,4 +71,8 @@ internal abstract class WikiBuilder {
     @ContributesAndroidInjector(modules = [CoreModule::class])
     @CoreScope
     abstract fun provideCoreFragment(): CoreFragment
+
+    @ContributesAndroidInjector(modules = [RocketsModule::class])
+    @RocketsScope
+    abstract fun provideRocketsFragment(): RocketsFragment
 }
