@@ -7,6 +7,7 @@ import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.CoresScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.MissionsScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.PayloadsScreen
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.RocketsScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -38,6 +39,6 @@ class ContentPresenter @Inject constructor() : BasePresenter<ContentView>() {
     }
 
     fun openRockets() {
-
+        router.navigateTo(RocketsScreen())
     }
 }
