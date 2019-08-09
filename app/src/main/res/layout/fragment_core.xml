@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_block"
+                style="@style/Text.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Block 5" />
+
+            <TextView
+                android:id="@+id/text_status"
+                style="@style/Text.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="destroyed" />
+
+            <TextView
+                android:id="@+id/text_launch"
+                style="@style/Text.Medium.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/text_block"
+                app:layout_constraintTop_toBottomOf="@+id/text_block"
+                tools:text="2014-04-18T19:25:00" />
+
+            <TextView
+                android:id="@+id/text_details"
+                style="@style/Text"
+                android:layout_width="0dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_launch"
+                app:layout_constraintTop_toBottomOf="@+id/text_launch"
+                tools:text="details" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/view_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_card_info"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="@id/text_details"
+                app:layout_constraintStart_toStartOf="@id/text_details"
+                app:layout_constraintTop_toBottomOf="@id/text_details">
+
+                <TextView
+                    android:id="@+id/label_reuse"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reuse count"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_reuse"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_reuse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_reuse"
+                    app:layout_constraintTop_toTopOf="@id/label_reuse"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/label_rtls_attempts"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="RTLS attempts"
+                    app:layout_constraintStart_toStartOf="@id/label_reuse"
+                    app:layout_constraintTop_toBottomOf="@id/label_reuse" />
+
+                <TextView
+                    android:id="@+id/text_rtls_attempts"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_rtls_attempts"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_rtls_attempts"
+                    app:layout_constraintTop_toTopOf="@id/label_rtls_attempts"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/label_rtls_landings"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="RTLS landings"
+                    app:layout_constraintStart_toStartOf="@id/label_rtls_attempts"
+                    app:layout_constraintTop_toBottomOf="@id/label_rtls_attempts" />
+
+                <TextView
+                    android:id="@+id/text_rtls_landings"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_rtls_landings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_rtls_landings"
+                    app:layout_constraintTop_toTopOf="@id/label_rtls_landings"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/label_asds_attempts"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="ASDS attempts"
+                    app:layout_constraintStart_toStartOf="@id/label_rtls_landings"
+                    app:layout_constraintTop_toBottomOf="@id/label_rtls_landings" />
+
+                <TextView
+                    android:id="@+id/text_asds_attempts"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_asds_attempts"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_asds_attempts"
+                    app:layout_constraintTop_toTopOf="@id/label_asds_attempts"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/label_asds_landings"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="ASDS landings"
+                    app:layout_constraintStart_toStartOf="@id/label_asds_attempts"
+                    app:layout_constraintTop_toBottomOf="@id/label_asds_attempts" />
+
+                <TextView
+                    android:id="@+id/text_asds_landings"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_asds_landings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_asds_landings"
+                    app:layout_constraintTop_toTopOf="@id/label_asds_landings"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/label_water_landing"
+                    style="@style/Text.Small.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Water landing"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_asds_landings"
+                    app:layout_constraintTop_toBottomOf="@id/label_asds_landings" />
+
+                <TextView
+                    android:id="@+id/text_water_landing"
+                    style="@style/Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="@id/label_water_landing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_water_landing"
+                    app:layout_constraintTop_toTopOf="@id/label_water_landing"
+                    tools:text="false" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/label_missions"
+                style="@style/Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Missions"
+                app:layout_constraintEnd_toEndOf="@id/text_details"
+                app:layout_constraintStart_toStartOf="@id/text_details"
+                app:layout_constraintTop_toBottomOf="@+id/view_about" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_missions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_missions" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

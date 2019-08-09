@@ -58,7 +58,10 @@ class TimelineFragment : BaseFragment(), TimelineView, HasToolbar {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.menu_timeline, menu)
+        if (menu?.size() == 0) {
+            inflater?.inflate(R.menu.menu_timeline, menu)
+        }
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
