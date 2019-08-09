@@ -4,10 +4,16 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.CapsuleModel
 import com.github.emilg1101.spacex.presentation.model.MissionItemShortModel
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScreen
+import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 @InjectViewState
 class CapsulePresenter @Inject constructor(@CapsuleQualifier val capsuleSerial: String) : BasePresenter<CapsuleView>() {
+
+    @field:Inject
+    @field:CapsuleQualifier
+    lateinit var router: Router
 
     override fun onFirstViewAttach() {
         val model = CapsuleModel(
@@ -33,6 +39,6 @@ class CapsulePresenter @Inject constructor(@CapsuleQualifier val capsuleSerial: 
     }
 
     fun openMission(model: MissionItemShortModel) {
-
+        router.navigateTo(LaunchScreen(model.flightNumber))
     }
 }

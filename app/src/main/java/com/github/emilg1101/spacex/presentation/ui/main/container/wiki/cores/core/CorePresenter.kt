@@ -4,6 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.CoreModel
 import com.github.emilg1101.spacex.presentation.model.MissionItemShortModel
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -46,6 +47,6 @@ class CorePresenter @Inject constructor(@CoreQualifier val serial: String) : Bas
     }
 
     fun openMission(model: MissionItemShortModel) {
-
+        router.navigateTo(LaunchScreen(model.flightNumber))
     }
 }

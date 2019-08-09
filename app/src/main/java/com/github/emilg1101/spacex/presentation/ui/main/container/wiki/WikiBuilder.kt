@@ -1,5 +1,8 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki
 
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchFragment
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchModule
+import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScope
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.CapsulesFragment
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.CapsulesModule
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules.CapsulesScope
@@ -82,4 +85,8 @@ internal abstract class WikiBuilder {
     @ContributesAndroidInjector(modules = [RocketModule::class])
     @RocketScope
     abstract fun provideRocketFragment(): RocketFragment
+
+    @ContributesAndroidInjector(modules = [LaunchModule::class])
+    @LaunchScope
+    abstract fun provideLaunchFragment(): LaunchFragment
 }

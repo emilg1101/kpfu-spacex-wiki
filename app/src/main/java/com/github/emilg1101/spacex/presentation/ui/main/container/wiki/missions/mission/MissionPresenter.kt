@@ -5,6 +5,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.model.MissionModel
 import com.github.emilg1101.spacex.presentation.model.PayloadMissionItemModel
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -44,7 +45,7 @@ class MissionPresenter @Inject constructor(@MissionQualifier val missionId: Stri
     }
 
     fun openPayload(model: PayloadMissionItemModel) {
-
+        router.navigateTo(PayloadScreen(model.payloadId))
     }
 
     fun openLink(link: String) {
