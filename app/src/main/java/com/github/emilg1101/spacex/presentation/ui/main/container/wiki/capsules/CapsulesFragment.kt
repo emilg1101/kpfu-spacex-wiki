@@ -1,6 +1,9 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.capsules
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.DividerItemDecoration.HORIZONTAL
+import android.support.v7.widget.DividerItemDecoration.VERTICAL
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -39,6 +42,7 @@ class CapsulesFragment : BaseFragment(), CapsulesView, HasToolbar {
         setHasOptionsMenu(true)
         list.adapter = capsulesAdapter
         list.layoutManager = LinearLayoutManager(context)
+        list.addItemDecoration(DividerItemDecoration(context, VERTICAL))
     }
 
     override fun showCapsules(items: List<CapsuleItemModel>) {

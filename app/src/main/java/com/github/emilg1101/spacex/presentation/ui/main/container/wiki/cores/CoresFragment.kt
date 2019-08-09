@@ -1,6 +1,7 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -13,7 +14,9 @@ import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.adapter.CoresAdapter
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.CoreItemModel
+import kotlinx.android.synthetic.main.fragment_capsules.*
 import kotlinx.android.synthetic.main.fragment_cores.*
+import kotlinx.android.synthetic.main.fragment_cores.list
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_toolbar.toolbar
 
@@ -39,6 +42,7 @@ class CoresFragment : BaseFragment(), CoresView, HasToolbar {
         super.onViewCreated(view, savedInstanceState)
         list.adapter = coresAdapter
         list.layoutManager = LinearLayoutManager(context)
+        list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun showCores(items: List<CoreItemModel>) {

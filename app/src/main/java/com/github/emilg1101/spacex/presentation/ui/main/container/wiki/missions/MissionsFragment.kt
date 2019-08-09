@@ -1,6 +1,7 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.View
@@ -11,7 +12,9 @@ import com.github.emilg1101.spacex.presentation.adapter.MissionsAdapter
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.MissionItemModel
+import kotlinx.android.synthetic.main.fragment_capsules.*
 import kotlinx.android.synthetic.main.fragment_missions.*
+import kotlinx.android.synthetic.main.fragment_missions.list
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -39,6 +42,7 @@ class MissionsFragment : BaseFragment(), MissionsView, HasToolbar {
         setHasOptionsMenu(true)
         list.adapter = missionsAdapter
         list.layoutManager = LinearLayoutManager(context)
+        list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun showMissions(items: List<MissionItemModel>) {
