@@ -5,6 +5,9 @@ import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.LaunchEventScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.*
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.core.CoreScreen
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScreen
+import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.rocket.RocketScreen
 import com.yandex.mapkit.geometry.Point
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -59,15 +62,15 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
     }
 
     fun openRocket(id: String) {
-
+        router.navigateTo(RocketScreen(id))
     }
 
     fun openCore(core: CoreLaunchItemModel) {
-
+        router.navigateTo(CoreScreen(core.coreSerial))
     }
 
     fun openPayload(payload: PayloadLaunchItemModel) {
-
+        router.navigateTo(PayloadScreen(payload.payloadId))
     }
 
     fun openLink(link: LinkLaunchItemModel) {
@@ -75,7 +78,7 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
     }
 
     fun openLaunchPad(id: String) {
-
+        //TODO in a wonderful future
     }
 
     fun onRemind() {

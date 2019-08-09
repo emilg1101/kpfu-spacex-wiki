@@ -2,6 +2,7 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.launches.laun
 
 import android.os.Bundle
 import android.support.design.chip.Chip
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
@@ -64,16 +65,17 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ViewCompat.requestApplyInsets(container)
         val style = "[" +
-                "  {" +
-                "    \"featureType\" : \"all\"," +
-                "    \"stylers\" : {" +
-                "      \"hue\" : \"1\"," +
-                "      \"saturation\" : \"0.3\"," +
-                "      \"lightness\" : \"-0.7\"" +
-                "    }" +
-                "  }" +
-                "]"
+            "  {" +
+            "    \"featureType\" : \"all\"," +
+            "    \"stylers\" : {" +
+            "      \"hue\" : \"1\"," +
+            "      \"saturation\" : \"0.3\"," +
+            "      \"lightness\" : \"-0.7\"" +
+            "    }" +
+            "  }" +
+            "]"
         mapview.map.setMapStyle(style)
 
         list_cores.adapter = launchCoresAdapter
@@ -109,11 +111,7 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     }
 
     override fun showLaunchPadOnMap(point: Point) {
-        mapview.map.move(
-            CameraPosition(point, 11.0f, 0.0f, 0.0f),
-            Animation(Animation.Type.SMOOTH, 0f),
-            null
-        )
+        mapview.map.move(CameraPosition(point, 11.0f, 0.0f, 0.0f))
         mapview.setNoninteractive(true)
         mapview.map.mapObjects.addPlacemark(point)
     }
