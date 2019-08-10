@@ -1,10 +1,12 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch
 
 import com.arellomobile.mvp.InjectViewState
+import com.github.emilg1101.spacex.domain.usecase.launch.GetLaunchUseCase
 import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.LaunchEventScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.*
+import com.github.emilg1101.spacex.presentation.rx.transformer.PresentationSingleTransformer
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.cores.core.CoreScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.rocket.RocketScreen
@@ -19,7 +21,33 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
     @field:LaunchQualifier
     lateinit var router: Router
 
+    @field:Inject
+    lateinit var getLaunchUseCase: GetLaunchUseCase
+
     override fun onFirstViewAttach() {
+        viewState.setToolbarTitle("Launch")
+        getLaunchUseCase.getLaunch(flightNumber)
+            .compose(PresentationSingleTransformer())
+            .map(LaunchModelMapper::map)
+            .doOnSubscribe { viewState.showProgressBar() }
+            .doAfterTerminate { viewState.hideProgressBar() }
+            .subscribe({ model ->
+                viewState.showMission(model.missionName)
+                viewState.showLaunchPad(model.launchPadName)
+                viewState.showLaunchTime(model.launchTime)
+                viewState.showDetails(model.details)
+                viewState.showRocket(model.rocketName)
+                viewState.showPatch(model.missionPatch)
+                viewState.showLaunchPadOnMap(model.launchPadCoords)
+                viewState.showCores(model.cores)
+                viewState.showPayloads(model.payloads)
+                viewState.showLinks(model.links)
+                viewState.showImages(model.images)
+                viewState.setRocketId(model.rocketId)
+                viewState.setLaunchPadId(model.launchPadId)
+            }, {
+                it.printStackTrace()
+            }).disposeWhenDestroy()
         val model = LaunchModel(
             74,
             "Iridium NEXT Mission 8",
@@ -48,21 +76,6 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
             "falcon9",
             "Falcon 9"
         )
-
-        viewState.setToolbarTitle("Launch")
-        viewState.showMission(model.missionName)
-        viewState.showLaunchPad(model.launchPadName)
-        viewState.showLaunchTime(model.launchTime)
-        viewState.showDetails(model.details)
-        viewState.showRocket(model.rocketName)
-        viewState.showPatch(model.missionPatch)
-        viewState.showLaunchPadOnMap(model.launchPadCoords)
-        viewState.showCores(model.cores)
-        viewState.showPayloads(model.payloads)
-        viewState.showLinks(model.links)
-        viewState.showImages(model.images)
-        viewState.setRocketId(model.rocketId)
-        viewState.setLaunchPadId(model.launchPadId)
     }
 
     fun openRocket(id: String) {

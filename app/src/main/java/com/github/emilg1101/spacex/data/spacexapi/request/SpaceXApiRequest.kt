@@ -51,4 +51,7 @@ interface SpaceXApiRequest {
 
     @GET("launchpads/{site_id}")
     fun getLaunchPadById(@Path("site_id") siteId: String): Single<LaunchPad>
+
+    @GET("launches/{flight_number}")
+    fun getLaunch(@Path("flight_number") flightNumber: Int): Single<Launch>
 }

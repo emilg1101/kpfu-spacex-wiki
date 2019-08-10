@@ -89,4 +89,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getLaunchPadById(siteId: String): Single<LaunchPad> {
         return api.getLaunchPadById(siteId).compose(SpaceXApiRequestErrorSingleTransformer())
     }
+
+    override fun getLaunch(flightNumber: Int): Single<Launch> {
+        return api.getLaunch(flightNumber).compose(SpaceXApiRequestErrorSingleTransformer())
+    }
 }

@@ -21,8 +21,8 @@ class Launch {
     var redditMedia: String? = null
     var presskit: String? = null
     var articleLink: String? = null
-    var wikipedia: String? = ""
-    var videoLink: String = ""
+    var wikipedia: String? = null
+    var videoLink: String? = null
     var siteName: String = ""
     var siteLatitude: Double = 0.0
     var siteLongitude: Double = 0.0
