@@ -12,7 +12,6 @@ import com.github.emilg1101.spacex.presentation.adapter.RocketsAdapter
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.RocketItemModel
-import kotlinx.android.synthetic.main.fragment_capsules.*
 import kotlinx.android.synthetic.main.fragment_rockets.*
 import kotlinx.android.synthetic.main.fragment_rockets.list
 import kotlinx.android.synthetic.main.layout_toolbar.toolbar
@@ -49,6 +48,14 @@ class RocketsFragment : BaseFragment(), RocketsView, HasToolbar {
         rocketsAdapter.onItemClick = {
             presenter.openRocket(it)
         }
+    }
+
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.INVISIBLE
     }
 
     companion object {

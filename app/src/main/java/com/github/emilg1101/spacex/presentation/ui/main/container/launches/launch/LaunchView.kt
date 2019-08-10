@@ -3,13 +3,14 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.launches.laun
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.github.emilg1101.spacex.presentation.base.BaseView
+import com.github.emilg1101.spacex.presentation.base.HasProgressBar
 import com.github.emilg1101.spacex.presentation.model.CoreLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.LinkLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.PayloadLaunchItemModel
 import com.yandex.mapkit.geometry.Point
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface LaunchView : BaseView {
+interface LaunchView : BaseView, HasProgressBar {
 
     fun showMission(name: String)
 

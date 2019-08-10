@@ -126,8 +126,8 @@
                 app:layout_constraintTop_toTopOf="@+id/label_rocket" />
 
             <Button
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:id="@+id/btn_rocket"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="More"
@@ -181,8 +181,8 @@
                 android:layout_marginTop="16dp"
                 android:text="Links"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/list_payloads"
-                app:layout_constraintStart_toStartOf="@+id/list_payloads" />
+                app:layout_constraintStart_toStartOf="@+id/list_payloads"
+                app:layout_constraintTop_toBottomOf="@+id/list_payloads" />
 
             <android.support.design.chip.ChipGroup
                 android:id="@+id/list_links"
@@ -202,8 +202,8 @@
                 android:layout_marginTop="16dp"
                 android:text="Images"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/list_links"
-                app:layout_constraintStart_toStartOf="@+id/list_links" />
+                app:layout_constraintStart_toStartOf="@+id/list_links"
+                app:layout_constraintTop_toBottomOf="@+id/list_links" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/list_images"
@@ -220,5 +220,13 @@
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/progress_bar"
+        layout="@layout/layout_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 </android.support.design.widget.CoordinatorLayout>

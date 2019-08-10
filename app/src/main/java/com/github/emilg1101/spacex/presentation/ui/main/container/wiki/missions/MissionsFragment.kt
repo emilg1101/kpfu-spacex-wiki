@@ -12,10 +12,8 @@ import com.github.emilg1101.spacex.presentation.adapter.MissionsAdapter
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.MissionItemModel
-import kotlinx.android.synthetic.main.fragment_capsules.*
 import kotlinx.android.synthetic.main.fragment_missions.*
-import kotlinx.android.synthetic.main.fragment_missions.list
-import kotlinx.android.synthetic.main.layout_toolbar.*
+import kotlinx.android.synthetic.main.layout_toolbar.toolbar
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -50,6 +48,14 @@ class MissionsFragment : BaseFragment(), MissionsView, HasToolbar {
         missionsAdapter.onItemClick = {
             presenter.openMission(it)
         }
+    }
+
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
     }
 
     companion object {

@@ -1,390 +1,397 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include
-        layout="@layout/layout_toolbar"/>
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/logo_spacex"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/logo"/>
+                android:src="@drawable/logo_spacex"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_summary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/logo"
-                tools:text="SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets."
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo"
+                tools:text="SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets." />
 
             <TextView
                 android:id="@+id/label_administration"
+                style="@style/Text.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/text_summary"
-                app:layout_constraintStart_toStartOf="@id/text_summary"
-                app:layout_constraintEnd_toEndOf="@id/text_summary"
-                style="@style/Text.Title"
+                android:layout_marginTop="16dp"
                 android:text="Administration"
-                android:layout_marginTop="16dp"/>
+                app:layout_constraintEnd_toEndOf="@id/text_summary"
+                app:layout_constraintStart_toStartOf="@id/text_summary"
+                app:layout_constraintTop_toBottomOf="@id/text_summary" />
 
             <android.support.constraint.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/label_administration"
-                app:layout_constraintStart_toStartOf="@id/label_administration"
-                app:layout_constraintEnd_toEndOf="@id/label_administration"
+                android:id="@+id/view_administration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/background_card_info"
                 android:padding="16dp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/view_administration">
+                app:layout_constraintEnd_toEndOf="@id/label_administration"
+                app:layout_constraintStart_toStartOf="@id/label_administration"
+                app:layout_constraintTop_toBottomOf="@id/label_administration">
 
                 <TextView
                     android:id="@+id/label_founder"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Founder"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:text="Founder"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_founder"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_founder"
-                    app:layout_constraintBottom_toBottomOf="@id/label_founder"
-                    app:layout_constraintStart_toEndOf="@id/label_founder"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Elon Musk"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_founder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_founder"
+                    app:layout_constraintTop_toTopOf="@id/label_founder"
+                    tools:text="Elon Musk" />
 
                 <TextView
                     android:id="@+id/label_ceo"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_founder"
-                    app:layout_constraintStart_toStartOf="@id/label_founder"
+                    android:layout_marginTop="8dp"
                     android:text="CEO"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_founder"
+                    app:layout_constraintTop_toBottomOf="@id/label_founder" />
 
                 <TextView
                     android:id="@+id/text_ceo"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_ceo"
-                    app:layout_constraintBottom_toBottomOf="@id/label_ceo"
-                    app:layout_constraintStart_toEndOf="@id/label_ceo"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Elon Musk"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_ceo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_ceo"
+                    app:layout_constraintTop_toTopOf="@id/label_ceo"
+                    tools:text="Elon Musk" />
 
                 <TextView
                     android:id="@+id/label_coo"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_ceo"
-                    app:layout_constraintStart_toStartOf="@id/label_ceo"
+                    android:layout_marginTop="8dp"
                     android:text="COO"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_ceo"
+                    app:layout_constraintTop_toBottomOf="@id/label_ceo" />
 
                 <TextView
                     android:id="@+id/text_coo"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_coo"
-                    app:layout_constraintBottom_toBottomOf="@id/label_coo"
-                    app:layout_constraintStart_toEndOf="@id/label_coo"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Gwynne Shotwell"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_coo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_coo"
+                    app:layout_constraintTop_toTopOf="@id/label_coo"
+                    tools:text="Gwynne Shotwell" />
 
                 <TextView
                     android:id="@+id/label_cto"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_coo"
-                    app:layout_constraintStart_toStartOf="@id/label_coo"
+                    android:layout_marginTop="8dp"
                     android:text="CTO"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_coo"
+                    app:layout_constraintTop_toBottomOf="@id/label_coo" />
 
                 <TextView
                     android:id="@+id/text_cto"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_cto"
-                    app:layout_constraintBottom_toBottomOf="@id/label_cto"
-                    app:layout_constraintStart_toEndOf="@id/label_cto"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Elon Musk"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_cto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_cto"
+                    app:layout_constraintTop_toTopOf="@id/label_cto"
+                    tools:text="Elon Musk" />
 
                 <TextView
                     android:id="@+id/label_cto_propulsion"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_cto"
-                    app:layout_constraintStart_toStartOf="@id/label_cto"
-                    android:text="CTO Propulsion"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    android:text="CTO Propulsion"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_cto"
+                    app:layout_constraintTop_toBottomOf="@id/label_cto" />
 
                 <TextView
                     android:id="@+id/text_cto_propulsion"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_cto_propulsion"
-                    app:layout_constraintBottom_toBottomOf="@id/label_cto_propulsion"
-                    app:layout_constraintStart_toEndOf="@id/label_cto_propulsion"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Tom Mueller"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_cto_propulsion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_cto_propulsion"
+                    app:layout_constraintTop_toTopOf="@id/label_cto_propulsion"
+                    tools:text="Tom Mueller" />
 
             </android.support.constraint.ConstraintLayout>
 
             <TextView
                 android:id="@+id/label_headquarters"
+                style="@style/Text.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/view_administration"
-                app:layout_constraintStart_toStartOf="@id/text_summary"
-                app:layout_constraintEnd_toEndOf="@id/text_summary"
-                style="@style/Text.Title"
+                android:layout_marginTop="16dp"
                 android:text="Headquarters"
-                android:layout_marginTop="16dp"/>
+                app:layout_constraintEnd_toEndOf="@id/text_summary"
+                app:layout_constraintStart_toStartOf="@id/text_summary"
+                app:layout_constraintTop_toBottomOf="@id/view_administration" />
 
             <android.support.constraint.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/label_headquarters"
-                app:layout_constraintStart_toStartOf="@id/label_headquarters"
-                app:layout_constraintEnd_toEndOf="@id/label_headquarters"
+                android:id="@+id/view_headquarters"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/background_card_info"
                 android:padding="16dp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/view_headquarters">
+                app:layout_constraintEnd_toEndOf="@id/label_headquarters"
+                app:layout_constraintStart_toStartOf="@id/label_headquarters"
+                app:layout_constraintTop_toBottomOf="@id/label_headquarters">
 
                 <TextView
                     android:id="@+id/label_state"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="State"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:text="State"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_state"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_state"
-                    app:layout_constraintBottom_toBottomOf="@id/label_state"
-                    app:layout_constraintStart_toEndOf="@id/label_state"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="California"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_state"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_state"
+                    app:layout_constraintTop_toTopOf="@id/label_state"
+                    tools:text="California" />
 
                 <TextView
                     android:id="@+id/label_city"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_state"
-                    app:layout_constraintStart_toStartOf="@id/label_state"
+                    android:layout_marginTop="8dp"
                     android:text="City"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_state"
+                    app:layout_constraintTop_toBottomOf="@id/label_state" />
 
                 <TextView
                     android:id="@+id/text_city"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_city"
-                    app:layout_constraintBottom_toBottomOf="@id/label_city"
-                    app:layout_constraintStart_toEndOf="@id/label_city"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Hawthorne"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_city"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_city"
+                    app:layout_constraintTop_toTopOf="@id/label_city"
+                    tools:text="Hawthorne" />
 
                 <TextView
                     android:id="@+id/label_address"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_city"
-                    app:layout_constraintStart_toStartOf="@id/label_city"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp"
                     android:text="Address"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_city"
+                    app:layout_constraintTop_toBottomOf="@id/label_city" />
 
                 <TextView
                     android:id="@+id/text_address"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_address"
-                    app:layout_constraintBottom_toBottomOf="@id/label_address"
-                    app:layout_constraintStart_toEndOf="@id/label_address"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="Rocket Road"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_address"
+                    app:layout_constraintTop_toTopOf="@id/label_address"
+                    tools:text="Rocket Road" />
 
             </android.support.constraint.ConstraintLayout>
 
             <TextView
                 android:id="@+id/label_statistics"
+                style="@style/Text.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/view_headquarters"
-                app:layout_constraintStart_toStartOf="@id/text_summary"
-                app:layout_constraintEnd_toEndOf="@id/text_summary"
-                style="@style/Text.Title"
+                android:layout_marginTop="16dp"
                 android:text="Statistics"
-                android:layout_marginTop="16dp"/>
+                app:layout_constraintEnd_toEndOf="@id/text_summary"
+                app:layout_constraintStart_toStartOf="@id/text_summary"
+                app:layout_constraintTop_toBottomOf="@id/view_headquarters" />
 
             <android.support.constraint.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/label_statistics"
-                app:layout_constraintStart_toStartOf="@id/label_statistics"
-                app:layout_constraintEnd_toEndOf="@id/label_statistics"
+                android:id="@+id/view_statistics"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/background_card_info"
                 android:padding="16dp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/view_statistics"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="16dp">
+                app:layout_constraintEnd_toEndOf="@id/label_statistics"
+                app:layout_constraintStart_toStartOf="@id/label_statistics"
+                app:layout_constraintTop_toBottomOf="@id/label_statistics">
 
                 <TextView
                     android:id="@+id/label_employees"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Employees"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:text="Employees"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_employees"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_employees"
-                    app:layout_constraintBottom_toBottomOf="@id/label_employees"
-                    app:layout_constraintStart_toEndOf="@id/label_employees"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="7000"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_employees"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_employees"
+                    app:layout_constraintTop_toTopOf="@id/label_employees"
+                    tools:text="7000" />
 
                 <TextView
                     android:id="@+id/label_vehicles"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_employees"
-                    app:layout_constraintStart_toStartOf="@id/label_employees"
+                    android:layout_marginTop="8dp"
                     android:text="Vehicles"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_employees"
+                    app:layout_constraintTop_toBottomOf="@id/label_employees" />
 
                 <TextView
                     android:id="@+id/text_vehicles"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_vehicles"
-                    app:layout_constraintBottom_toBottomOf="@id/label_vehicles"
-                    app:layout_constraintStart_toEndOf="@id/label_vehicles"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="3"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_vehicles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_vehicles"
+                    app:layout_constraintTop_toTopOf="@id/label_vehicles"
+                    tools:text="3" />
 
                 <TextView
                     android:id="@+id/label_launch_sites"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_vehicles"
-                    app:layout_constraintStart_toStartOf="@id/label_vehicles"
+                    android:layout_marginTop="8dp"
                     android:text="Launch sites"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintStart_toStartOf="@id/label_vehicles"
+                    app:layout_constraintTop_toBottomOf="@id/label_vehicles" />
 
                 <TextView
                     android:id="@+id/text_launch_sites"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_launch_sites"
-                    app:layout_constraintBottom_toBottomOf="@id/label_launch_sites"
-                    app:layout_constraintStart_toEndOf="@id/label_launch_sites"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="3"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_launch_sites"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_launch_sites"
+                    app:layout_constraintTop_toTopOf="@id/label_launch_sites"
+                    tools:text="3" />
 
                 <TextView
                     android:id="@+id/label_valuation"
                     style="@style/Text.Small.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/label_launch_sites"
-                    app:layout_constraintStart_toStartOf="@id/label_launch_sites"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp"
                     android:text="Valuation"
-                    android:layout_marginTop="8dp"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_launch_sites"
+                    app:layout_constraintTop_toBottomOf="@id/label_launch_sites" />
 
                 <TextView
                     android:id="@+id/text_valuation"
                     style="@style/Text.Small"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/label_valuation"
-                    app:layout_constraintBottom_toBottomOf="@id/label_valuation"
-                    app:layout_constraintStart_toEndOf="@id/label_valuation"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:textAlignment="textEnd"
-                    tools:text="3"/>
+                    app:layout_constraintBottom_toBottomOf="@id/label_valuation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/label_valuation"
+                    app:layout_constraintTop_toTopOf="@id/label_valuation"
+                    tools:text="3" />
 
             </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/progress_bar"
+        layout="@layout/layout_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 </android.support.constraint.ConstraintLayout>

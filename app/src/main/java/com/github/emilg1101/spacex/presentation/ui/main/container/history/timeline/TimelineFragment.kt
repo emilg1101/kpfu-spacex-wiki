@@ -57,6 +57,14 @@ class TimelineFragment : BaseFragment(), TimelineView, HasToolbar {
         }
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         if (menu?.size() == 0) {
             inflater?.inflate(R.menu.menu_timeline, menu)

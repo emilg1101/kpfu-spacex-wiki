@@ -42,6 +42,14 @@ class UpcomingLaunchesFragment : BaseFragment(), UpcomingLaunchesView {
         }
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
+    }
+
     companion object {
 
         val TAG: String = UpcomingLaunchesFragment::class.java.name
