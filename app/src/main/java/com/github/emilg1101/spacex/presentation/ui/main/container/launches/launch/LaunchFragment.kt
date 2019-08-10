@@ -175,6 +175,14 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         }
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
+    }
+
     override fun onStop() {
         super.onStop()
         mapview.onStop()

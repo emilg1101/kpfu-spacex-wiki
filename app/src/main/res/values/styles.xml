@@ -15,6 +15,10 @@
         <item name="android:windowBackground">@color/eerie_black</item>
     </style>
 
+    <style name="WhiteAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <!-- Toolbar -->
     <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="titleTextAppearance">@style/ToolbarText</item>

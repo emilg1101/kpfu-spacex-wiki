@@ -76,6 +76,14 @@ class MissionFragment : BaseFragment(), MissionView, HasToolbar {
         }
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
+    }
+
     companion object {
 
         val TAG = MissionFragment::class.java.name

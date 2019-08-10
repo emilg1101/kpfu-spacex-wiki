@@ -2,6 +2,7 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.
 
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.emilg1101.spacex.R
@@ -81,6 +82,14 @@ class RocketFragment : BaseFragment(), RocketView, HasToolbar {
         button_wikipedia.setOnClickListener {
             presenter.openLink(link)
         }
+    }
+
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
     }
 
     companion object {

@@ -3,10 +3,11 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions
 import com.github.emilg1101.spacex.presentation.base.BaseView
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
+import com.github.emilg1101.spacex.presentation.base.HasProgressBar
 import com.github.emilg1101.spacex.presentation.model.PayloadMissionItemModel
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface MissionView : BaseView {
+interface MissionView : BaseView, HasProgressBar {
 
     fun showDetails(details: String)
 

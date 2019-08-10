@@ -74,6 +74,14 @@ class PayloadFragment : BaseFragment(), PayloadView, HasToolbar {
         orbitParamsAdapter.items = items
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.INVISIBLE
+    }
+
     companion object {
 
         val TAG = PayloadFragment::class.java.name

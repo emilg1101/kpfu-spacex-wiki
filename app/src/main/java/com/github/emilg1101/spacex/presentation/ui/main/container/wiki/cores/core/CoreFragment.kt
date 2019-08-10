@@ -93,6 +93,14 @@ class CoreFragment : BaseFragment(), CoreView, HasToolbar {
         }
     }
 
+    override fun showProgressBar() {
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        progress_bar.visibility = View.GONE
+    }
+
     companion object {
 
         val TAG = CoreFragment::class.java.name

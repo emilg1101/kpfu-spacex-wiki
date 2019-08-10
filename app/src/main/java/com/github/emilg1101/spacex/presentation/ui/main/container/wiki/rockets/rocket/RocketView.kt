@@ -3,9 +3,10 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.rockets.
 import com.github.emilg1101.spacex.presentation.base.BaseView
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
+import com.github.emilg1101.spacex.presentation.base.HasProgressBar
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface RocketView : BaseView {
+interface RocketView : BaseView, HasProgressBar {
 
     fun showFirstFlight(firstFlight: String)
 
