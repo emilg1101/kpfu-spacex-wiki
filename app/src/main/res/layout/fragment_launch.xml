@@ -193,7 +193,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/btn_rocket"
                 app:layout_constraintStart_toStartOf="@+id/label_links"
                 app:layout_constraintTop_toBottomOf="@+id/label_links" />
@@ -206,8 +205,7 @@
                 android:text="Images"
                 android:textSize="22sp"
                 app:layout_constraintTop_toBottomOf="@+id/list_links"
-                app:layout_constraintStart_toStartOf="@+id/list_links"
-                android:visibility="gone"/>
+                app:layout_constraintStart_toStartOf="@+id/list_links" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/list_images"
@@ -219,11 +217,20 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/btn_rocket"
                 app:layout_constraintStart_toStartOf="@+id/label_images"
-                app:layout_constraintTop_toBottomOf="@+id/label_images"
-                android:visibility="gone"/>
+                app:layout_constraintTop_toBottomOf="@+id/label_images" />
 
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_calendar"
+        app:backgroundTint="@color/dark_gunmetal"
+        android:visibility="gone"/>
 
 </android.support.design.widget.CoordinatorLayout>

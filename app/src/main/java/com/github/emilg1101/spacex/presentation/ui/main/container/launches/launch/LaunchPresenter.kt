@@ -40,7 +40,11 @@ class LaunchPresenter @Inject constructor(@LaunchQualifier val flightNumber: Int
                 LinkLaunchItemModel("youtube", "https://youtu.be/VshdafZvwrg"),
                 LinkLaunchItemModel("Reddit", "https://www.reddit.com/r/spacex/comments/a699fh/iridium_next_constellation_mission_8_launch/")
             ),
-            arrayListOf(),
+            arrayListOf(
+                "https://farm9.staticflickr.com/8617/16789019815_f99a165dc5_o.jpg",
+                "https://farm8.staticflickr.com/7619/16763151866_35a0a4d8e1_o.jpg",
+                "https://farm9.staticflickr.com/8569/16169086873_4d8829832e_o.png"
+            ),
             "falcon9",
             "Falcon 9"
         )

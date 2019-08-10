@@ -1,13 +1,11 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.chip.Chip
 import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -21,7 +19,6 @@ import com.github.emilg1101.spacex.presentation.model.CoreLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.LinkLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.PayloadLaunchItemModel
 import com.squareup.picasso.Picasso
-import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
@@ -50,15 +47,12 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     @field:Inject
     lateinit var launchImagesAdapter: LaunchImagesAdapter
 
-    private var menu: Menu? = null
-
     override val contentLayout = R.layout.fragment_launch
 
     override fun getToolbar(): Toolbar = toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
         MapKitFactory.initialize(context)
     }
 
@@ -173,24 +167,12 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     override fun showRemind() {
-        menu?.findItem(R.id.action_remind)?.isVisible = true
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        if (menu?.size() == 0) {
-            inflater?.inflate(R.menu.menu_launch, menu)
-        }
-        this.menu = menu
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == R.id.action_remind) {
+        button_remind.visibility = View.VISIBLE
+        button_remind.setOnClickListener {
             presenter.onRemind()
-            return true
         }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onStop() {

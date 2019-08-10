@@ -33,7 +33,7 @@ class LaunchImagesAdapter : RecyclerView.Adapter<LaunchImagesAdapter.ImageViewHo
 
         fun bindView() = with(itemView) {
             val item = items[adapterPosition]
-            Picasso.get().load(item).into(image)
+            Picasso.get().load(item).fit().into(image)
         }
     }
 }
