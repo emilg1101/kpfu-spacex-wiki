@@ -85,4 +85,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getAllShips(): Single<List<Ship>> {
         return api.getAllShips().compose(SpaceXApiRequestErrorSingleTransformer())
     }
+
+    override fun getLaunchPadById(siteId: String): Single<LaunchPad> {
+        return api.getLaunchPadById(siteId).compose(SpaceXApiRequestErrorSingleTransformer())
+    }
 }

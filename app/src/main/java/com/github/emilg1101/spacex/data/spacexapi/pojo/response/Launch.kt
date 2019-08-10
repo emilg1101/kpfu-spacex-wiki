@@ -1,6 +1,7 @@
 package com.github.emilg1101.spacex.data.spacexapi.pojo.response
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class Launch(
     @SerializedName("flight_number") val flightNumber: Int,
@@ -9,7 +10,7 @@ data class Launch(
     @SerializedName("launch_year") val launchYear: Int,
     @SerializedName("launch_date_unix") val launchDateUnix: Int,
     @SerializedName("launch_date_utc") val launchDateUtc: String,
-    @SerializedName("launch_date_local") val launchDateLocal: String,
+    @SerializedName("launch_date_local") val launchDateLocal: Date,
     @SerializedName("is_tentative") val isTentative: Boolean,
     @SerializedName("tentative_max_precision") val tentativeMaxPrecision: String,
     @SerializedName("tbd") val tbd: Boolean,
@@ -23,6 +24,5 @@ data class Launch(
     @SerializedName("details") val details: String,
     @SerializedName("upcoming") val upcoming: Boolean,
     @SerializedName("static_fire_date_utc") val staticFireDateUtc: String,
-    @SerializedName("static_fire_date_unix") val staticFireDateUnix: String,
-    @SerializedName("timeline") val timeline: String
+    @SerializedName("static_fire_date_unix") val staticFireDateUnix: String
 )
