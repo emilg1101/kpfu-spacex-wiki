@@ -7,8 +7,15 @@ import com.yandex.mapkit.MapKitFactory
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import io.reactivex.plugins.RxJavaPlugins
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.Executors
 
 class SpacexApp : DaggerApplication() {
+
+    companion object {
+        private val NETWORK_THREAD_POOL = Executors.newFixedThreadPool(2)
+        val NETWORK_SCHEDULER = Schedulers.from(NETWORK_THREAD_POOL)
+    }
 
     override fun applicationInjector(): AndroidInjector<SpacexApp> {
         return DaggerAppComponent.builder()
