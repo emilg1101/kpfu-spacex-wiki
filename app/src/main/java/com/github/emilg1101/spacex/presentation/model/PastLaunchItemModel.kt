@@ -1,7 +1,7 @@
 package com.github.emilg1101.spacex.presentation.model
 
 import com.github.emilg1101.spacex.domain.entity.Launch
-import java.text.SimpleDateFormat
+import com.github.emilg1101.spacex.presentation.util.format
 
 class PastLaunchItemModel(
     val patch: String,
@@ -12,12 +12,11 @@ class PastLaunchItemModel(
 
 object PastLaunchItemModelMapper {
     fun map(launches: List<Launch>): List<PastLaunchItemModel> {
-        val format = SimpleDateFormat("dd MMM`yy-hh:mm")
         return launches.map { launch ->
             PastLaunchItemModel(
                 launch.patch ?: "",
                 launch.missionName,
-                format.format(launch.launchDate),
+                launch.launchDate.format(),
                 launch.flightNumber
             )
         }

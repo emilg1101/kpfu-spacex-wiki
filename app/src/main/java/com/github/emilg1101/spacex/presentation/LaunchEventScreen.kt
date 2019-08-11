@@ -17,11 +17,10 @@ class LaunchEventScreen(private val launchEventModel: LaunchEventModel) : Suppor
         intent.type = "vnd.android.cursor.item/event"
 
         val calendar = Calendar.getInstance()
-        calendar.timeInMillis = launchEventModel.time * 1000
+        calendar.timeInMillis = launchEventModel.time
         calendar.timeZone = TimeZone.getDefault()
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, calendar.timeInMillis)
         intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false)
-
 
         intent.putExtra(Events.TITLE, launchEventModel.title)
         intent.putExtra(Events.DESCRIPTION, launchEventModel.description)

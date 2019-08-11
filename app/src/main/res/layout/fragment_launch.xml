@@ -165,7 +165,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Payloads"
                 android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@+id/list_cores"
+                app:layout_constraintStart_toStartOf="@+id/label_rocket"
                 app:layout_constraintTop_toBottomOf="@+id/list_cores" />
 
             <android.support.v7.widget.RecyclerView

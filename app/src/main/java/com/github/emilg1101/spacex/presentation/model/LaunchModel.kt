@@ -1,8 +1,8 @@
 package com.github.emilg1101.spacex.presentation.model
 
 import com.github.emilg1101.spacex.domain.entity.Launch
+import com.github.emilg1101.spacex.presentation.util.format
 import com.yandex.mapkit.geometry.Point
-import java.text.SimpleDateFormat
 
 class LaunchModel(
     val flightNumber: Int,
@@ -18,17 +18,17 @@ class LaunchModel(
     val links: List<LinkLaunchItemModel>,
     val images: List<String>,
     val rocketId: String,
-    val rocketName: String
+    val rocketName: String,
+    val upcoming: Boolean
 )
 
 object LaunchModelMapper {
     fun map(launch: Launch): LaunchModel {
-        val format = SimpleDateFormat("dd MM`yy-hh:mm")
         return LaunchModel(
             launch.flightNumber,
             launch.missionName,
             launch.patch ?: "",
-            format.format(launch.launchDate),
+            launch.launchDate.format(),
             "",
             launch.siteName,
             Point(launch.siteLatitude, launch.siteLongitude),
@@ -63,7 +63,8 @@ object LaunchModelMapper {
             ),
             launch.images,
             launch.rocketId,
-            launch.rocketName
+            launch.rocketName,
+            launch.upcoming
         )
     }
 }
