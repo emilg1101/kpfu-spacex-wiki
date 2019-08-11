@@ -101,4 +101,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getMissionById(missionId: String): Single<Mission> {
         return api.getMissionById(missionId).compose(SpaceXApiRequestErrorSingleTransformer())
     }
+
+    override fun getPayloadById(payloadId: String): Single<Payload> {
+        return api.getPayloadById(payloadId).compose(SpaceXApiRequestErrorSingleTransformer())
+    }
 }

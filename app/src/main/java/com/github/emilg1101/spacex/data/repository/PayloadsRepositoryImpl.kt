@@ -13,7 +13,8 @@ class PayloadsRepositoryImpl @Inject constructor(): PayloadsRepository {
     lateinit var api: SpaceXApiRequest
 
     override fun getPayloadById(id: String): Single<Payload> {
-        TODO("not implemented")
+        return api.getPayloadById(id)
+            .map(PayloadMapper::map)
     }
 
     override fun getPayloads(): Single<List<Payload>> {

@@ -60,4 +60,7 @@ interface SpaceXApiRequest {
 
     @GET("missions/{mission_id}")
     fun getMissionById(@Path("mission_id") missionId: String): Single<Mission>
+
+    @GET("payloads/{payload_id}")
+    fun getPayloadById(@Path("payload_id") payloadId: String): Single<Payload>
 }
