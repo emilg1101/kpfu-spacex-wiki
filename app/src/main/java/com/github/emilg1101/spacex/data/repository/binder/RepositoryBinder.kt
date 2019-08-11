@@ -25,4 +25,7 @@ abstract class RepositoryBinder {
 
     @Binds
     abstract fun bindPayloadsRepository(payloadsRepositoryImpl: PayloadsRepositoryImpl): PayloadsRepository
+
+    @Binds
+    abstract fun bindCoresRepository(coresRepositoryImpl: CoresRepositoryImpl): CoresRepository
 }
