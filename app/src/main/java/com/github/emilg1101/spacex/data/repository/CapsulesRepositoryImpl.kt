@@ -13,7 +13,8 @@ class CapsulesRepositoryImpl @Inject constructor() : CapsulesRepository {
     lateinit var api: SpaceXApiRequest
 
     override fun getCapsuleBySerial(serial: String): Single<Capsule> {
-        TODO("not implemented")
+        return api.getCapsuleBySerial(serial)
+            .map(CapsuleMapper::map)
     }
 
     override fun getCapsules(): Single<List<Capsule>> {
