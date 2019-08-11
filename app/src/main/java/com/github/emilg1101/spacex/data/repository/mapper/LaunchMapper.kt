@@ -26,9 +26,11 @@ object LaunchMapper {
             rocketId = launchEntity.rocket.rocketId
             rocketName = launchEntity.rocket.rocketName
             details = launchEntity.details
-            cores = launchEntity.rocket.firstStage.cores.map {
-                Launch.Core(it.coreSerial, it.landingVehicle, it.landingType, it.landSuccess, it.reused)
-            }
+            cores = launchEntity.rocket.firstStage.cores.map { core ->
+                core.coreSerial?.let {
+                    Launch.Core(it, core.landingVehicle, core.landingType, core.landSuccess, core.reused)
+                }
+            }.filterNotNull()
             payloads = launchEntity.rocket.secondStage.payloads.map { it.payloadId }
             images = launchEntity.links.flickrImages
             redditCampaign = launchEntity.links.redditCampaign

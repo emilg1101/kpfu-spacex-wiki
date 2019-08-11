@@ -18,6 +18,7 @@ import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.CoreLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.LinkLaunchItemModel
 import com.github.emilg1101.spacex.presentation.model.PayloadLaunchItemModel
+import com.github.emilg1101.spacex.presentation.util.ifNotBlankOrEmpty
 import com.squareup.picasso.Picasso
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -101,7 +102,9 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     }
 
     override fun showPatch(patch: String) {
-        Picasso.get().load(patch).into(image_patch)
+        patch.ifNotBlankOrEmpty {
+            Picasso.get().load(it).into(image_patch)
+        }
     }
 
     override fun showLaunchPadOnMap(point: Point) {
@@ -113,7 +116,7 @@ class LaunchFragment : BaseFragment(), LaunchView, HasToolbar {
     override fun showCores(items: List<CoreLaunchItemModel>) {
         if (items.isEmpty()) {
             label_cores.visibility = View.GONE
-            list_payloads.visibility = View.GONE
+            list_cores.visibility = View.GONE
         }
         launchCoresAdapter.items = items
         launchCoresAdapter.onItemClick = {
