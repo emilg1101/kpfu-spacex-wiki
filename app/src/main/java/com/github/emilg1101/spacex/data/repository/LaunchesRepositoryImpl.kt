@@ -38,7 +38,7 @@ class LaunchesRepositoryImpl @Inject constructor() : LaunchesRepository {
     override fun getPastLaunches(): Single<List<Launch>> {
         return api.getPastLaunches()
             .toObservable()
-            .flatMapIterable { list -> list }
+            .flatMapIterable { list -> list.reversed() }
             .map(LaunchMapper::map)
             .toList()
     }
