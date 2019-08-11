@@ -9,7 +9,7 @@ data class Cores(
     @SerializedName("gridfins") val gridfins: Boolean,
     @SerializedName("legs") val legs: Boolean,
     @SerializedName("reused") val reused: Boolean,
-    @SerializedName("land_success") val landSuccess: String,
+    @SerializedName("land_success") val landSuccess: Boolean,
     @SerializedName("landing_intent") val landingIntent: Boolean,
     @SerializedName("landing_type") val landingType: String,
     @SerializedName("landing_vehicle") val landingVehicle: String

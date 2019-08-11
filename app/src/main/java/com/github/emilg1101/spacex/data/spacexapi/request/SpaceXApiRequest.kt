@@ -3,6 +3,7 @@ package com.github.emilg1101.spacex.data.spacexapi.request
 import com.github.emilg1101.spacex.data.spacexapi.pojo.response.*
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface SpaceXApiRequest {
 
@@ -47,4 +48,10 @@ interface SpaceXApiRequest {
 
     @GET("ships")
     fun getAllShips(): Single<List<Ship>>
+
+    @GET("launchpads/{site_id}")
+    fun getLaunchPadById(@Path("site_id") siteId: String): Single<LaunchPad>
+
+    @GET("launches/{flight_number}")
+    fun getLaunch(@Path("flight_number") flightNumber: Int): Single<Launch>
 }

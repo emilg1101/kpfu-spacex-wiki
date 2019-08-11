@@ -12,7 +12,7 @@ data class OrbitParams(
     @SerializedName("apoapsis_km") val apoapsisKm: String,
     @SerializedName("inclination_deg") val inclinationDeg: String,
     @SerializedName("period_min") val periodMin: String,
-    @SerializedName("lifespan_years") val lifespanYears: Int,
+    @SerializedName("lifespan_years") val lifespanYears: Double,
     @SerializedName("epoch") val epoch: String,
     @SerializedName("mean_motion") val meanMotion: String,
     @SerializedName("raan") val raan: String,
