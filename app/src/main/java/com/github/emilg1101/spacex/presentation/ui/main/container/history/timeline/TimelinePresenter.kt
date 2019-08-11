@@ -1,9 +1,12 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.history.timeline
 
 import com.arellomobile.mvp.InjectViewState
+import com.github.emilg1101.spacex.domain.usecase.history.GetTimelineUseCase
 import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.HistoricalEventItemModel
+import com.github.emilg1101.spacex.presentation.model.HistoricalEventItemModelMapper
+import com.github.emilg1101.spacex.presentation.rx.transformer.PresentationSingleTransformer
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.HistoryQualifier
 import com.github.emilg1101.spacex.presentation.ui.main.container.history.companyinfo.CompanyInfoScreen
 import com.github.emilg1101.spacex.presentation.ui.main.container.launches.launch.LaunchScreen
@@ -17,48 +20,21 @@ class TimelinePresenter @Inject constructor() : BasePresenter<TimelineView>() {
     @field:HistoryQualifier
     lateinit var router: Router
 
+    @field:Inject
+    lateinit var getTimelineUseCase: GetTimelineUseCase
+
     override fun onFirstViewAttach() {
         viewState.setToolbarTitle("History")
-        viewState.showEvents(
-            arrayListOf(
-                HistoricalEventItemModel(
-                    "Falcon 1 Makes History",
-                    "Falcon 1 becomes the first privately developed liquid fuel rocket to reach Earth orbit.",
-                    "2008-09-28",
-                    "",
-                    "http://www.spacex.com/news/2013/02/11/flight-4-launch-update-0",
-                    "https://en.wikipedia.org/wiki/Falcon_1",
-                    0
-                ),
-                HistoricalEventItemModel(
-                    "Falcon 1 Makes History",
-                    "Falcon 1 becomes the first privately developed liquid fuel rocket to reach Earth orbit.",
-                    "2008-09-28",
-                    "",
-                    "http://www.spacex.com/news/2013/02/11/flight-4-launch-update-0",
-                    "https://en.wikipedia.org/wiki/Falcon_1",
-                    0
-                ),
-                HistoricalEventItemModel(
-                    "Falcon 1 Makes History",
-                    "Falcon 1 becomes the first privately developed liquid fuel rocket to reach Earth orbit.",
-                    "2008-09-28",
-                    "",
-                    "",
-                    "https://en.wikipedia.org/wiki/Falcon_1",
-                    0
-                ),
-                HistoricalEventItemModel(
-                    "Falcon 1 Makes History",
-                    "Falcon 1 becomes the first privately developed liquid fuel rocket to reach Earth orbit.",
-                    "2008-09-28",
-                    "http://www.spacex.com/news/2013/02/11/flight-4-launch-update-0",
-                    "http://www.spacex.com/news/2013/02/11/flight-4-launch-update-0",
-                    "https://en.wikipedia.org/wiki/Falcon_1",
-                    0
-                )
-            )
-        )
+        getTimelineUseCase.getTimeline()
+            .compose(PresentationSingleTransformer())
+            .map(HistoricalEventItemModelMapper::map)
+            .doOnSubscribe { viewState.showProgressBar() }
+            .doAfterTerminate { viewState.hideProgressBar() }
+            .subscribe({
+                viewState.showEvents(it)
+            }, {
+                it.printStackTrace()
+            }).disposeWhenDestroy()
     }
 
     fun openLink(link: String) {
