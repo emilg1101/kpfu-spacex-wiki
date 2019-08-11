@@ -2,7 +2,10 @@ package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads
 
 import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.arellomobile.mvp.InjectViewState
+import com.github.emilg1101.spacex.domain.usecase.wiki.GetPayloadsUseCase
 import com.github.emilg1101.spacex.presentation.model.PayloadItemModel
+import com.github.emilg1101.spacex.presentation.model.PayloadItemModelMapper
+import com.github.emilg1101.spacex.presentation.rx.transformer.PresentationSingleTransformer
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.WikiQualifier
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScreen
 import ru.terrakok.cicerone.Router
@@ -15,20 +18,21 @@ class PayloadsPresenter @Inject constructor() : BasePresenter<PayloadsView>() {
     @field:WikiQualifier
     lateinit var router: Router
 
+    @field:Inject
+    lateinit var getPayloadsUseCase: GetPayloadsUseCase
+
     override fun onFirstViewAttach() {
         viewState.setToolbarTitle("Payloads")
-        viewState.showPayloads(arrayListOf(
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States"),
-            PayloadItemModel("SpaceX CRS-2", "SpaceX", "United States")
-        ))
+        getPayloadsUseCase.getPayloads()
+            .compose(PresentationSingleTransformer())
+            .map(PayloadItemModelMapper::map)
+            .doOnSubscribe { viewState.showProgressBar() }
+            .doAfterSuccess { viewState.hideProgressBar() }
+            .subscribe({
+                viewState.showPayloads(it)
+            }, {
+                it.printStackTrace()
+            }).disposeWhenDestroy()
     }
 
     fun openPayload(model: PayloadItemModel) {

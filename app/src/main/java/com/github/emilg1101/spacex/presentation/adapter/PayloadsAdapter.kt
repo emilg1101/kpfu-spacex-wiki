@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.model.PayloadItemModel
+import com.github.emilg1101.spacex.presentation.util.ifNotBlankOrEmpty
 import kotlinx.android.synthetic.main.item_payload.view.*
 
 class PayloadsAdapter : RecyclerView.Adapter<PayloadsAdapter.PayloadViewHolder>() {
@@ -36,7 +37,12 @@ class PayloadsAdapter : RecyclerView.Adapter<PayloadsAdapter.PayloadViewHolder>(
         fun bindView() = with(itemView) {
             val item = items[adapterPosition]
             text_payload.text = item.id
-            text_manufacturer.text = "${item.manufacturer} (${item.nationality})"
+            item.manufacturer.ifNotBlankOrEmpty { manufacturer ->
+                text_manufacturer.text = manufacturer
+                item.nationality.ifNotBlankOrEmpty { nationality ->
+                    text_manufacturer.text = "$manufacturer ($nationality)"
+                }
+            }
 
             setOnClickListener {
                 onItemClick?.invoke(item)
