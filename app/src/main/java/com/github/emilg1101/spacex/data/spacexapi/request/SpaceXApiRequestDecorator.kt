@@ -109,4 +109,8 @@ class SpaceXApiRequestDecorator(private val api: SpaceXApiRequest) : SpaceXApiRe
     override fun getCoreBySerial(coreSerial: String): Single<Core> {
         return api.getCoreBySerial(coreSerial).compose(SpaceXApiRequestErrorSingleTransformer())
     }
+
+    override fun getRocketById(rocketId: String): Single<Rocket> {
+        return api.getRocketById(rocketId).compose(SpaceXApiRequestErrorSingleTransformer())
+    }
 }

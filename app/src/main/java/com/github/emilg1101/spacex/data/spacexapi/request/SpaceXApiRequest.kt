@@ -66,4 +66,7 @@ interface SpaceXApiRequest {
 
     @GET("cores/{core_serial}")
     fun getCoreBySerial(@Path("core_serial") coreSerial: String): Single<Core>
+
+    @GET("rockets/{rocket_id}")
+    fun getRocketById(@Path("rocket_id") rocketId: String): Single<Rocket>
 }
