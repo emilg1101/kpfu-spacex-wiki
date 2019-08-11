@@ -7,7 +7,7 @@ data class Rocket(
     @SerializedName("active") val active: Boolean,
     @SerializedName("stages") val stages: Int,
     @SerializedName("boosters") val boosters: Int,
-    @SerializedName("cost_per_launch") val costPerLaunch: Int,
+    @SerializedName("cost_per_launch") val costPerLaunch: Long,
     @SerializedName("success_rate_pct") val successRatePct: Int,
     @SerializedName("first_flight") val firstFlight: String,
     @SerializedName("country") val country: String,

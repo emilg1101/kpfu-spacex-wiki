@@ -15,7 +15,7 @@ class RocketPresenter @Inject constructor(@RocketQualifier private val rocketId:
     lateinit var router: Router
 
     override fun onFirstViewAttach() {
-        viewState.setToolbarTitle(rocketId)
+        viewState.setToolbarTitle("Rocket")
         val model = RocketModel(
             "Falcon 1",
             "false",

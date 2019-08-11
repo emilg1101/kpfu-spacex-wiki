@@ -28,4 +28,7 @@ abstract class RepositoryBinder {
 
     @Binds
     abstract fun bindCoresRepository(coresRepositoryImpl: CoresRepositoryImpl): CoresRepository
+
+    @Binds
+    abstract fun bindRocketsRepository(rocketsRepositoryImpl: RocketsRepositoryImpl): RocketsRepository
 }
