@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.emilg1101.spacex.R
 import com.github.emilg1101.spacex.presentation.model.HistoricalEventItemModel
-import kotlinx.android.synthetic.main.item_history_event.view.*
 import com.github.vipulasri.timelineview.TimelineView
+import kotlinx.android.synthetic.main.item_history_event.view.*
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryEventViewHolder>() {
 
@@ -51,9 +51,10 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryEventViewHolde
             text_details.text = item.details
 
             setOnClickListener {
-                onItemClick?.invoke(item)
+                if (item.flightNumber != 0) onItemClick?.invoke(item)
             }
 
+            list_links.removeAllViews()
             item.reddit.takeIf { it.isNotEmpty() }?.also { reddit ->
                 list_links.addView(Chip(context).apply {
                     text = "Reddit"

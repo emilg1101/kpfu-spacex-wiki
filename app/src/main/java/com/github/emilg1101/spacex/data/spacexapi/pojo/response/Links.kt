@@ -14,5 +14,7 @@ data class Links(
     @SerializedName("wikipedia") val wikipedia: String?,
     @SerializedName("video_link") val videoLink: String?,
     @SerializedName("youtube_id") val youtubeId: String?,
-    @SerializedName("flickr_images") val flickrImages: List<String>
+    @SerializedName("flickr_images") val flickrImages: List<String>,
+    @SerializedName("article") val article: String?,
+    @SerializedName("reddit") val reddit: String?
 )
