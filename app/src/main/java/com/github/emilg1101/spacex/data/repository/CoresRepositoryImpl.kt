@@ -13,7 +13,8 @@ class CoresRepositoryImpl @Inject constructor() : CoresRepository {
     lateinit var api: SpaceXApiRequest
 
     override fun getCoreBySerial(serial: String): Single<Core> {
-        TODO("not implemented")
+        return api.getCoreBySerial(serial)
+            .map(CoreMapper::map)
     }
 
     override fun getCores(): Single<List<Core>> {
