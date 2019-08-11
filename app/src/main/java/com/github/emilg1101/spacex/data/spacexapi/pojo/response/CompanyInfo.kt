@@ -14,7 +14,7 @@ data class CompanyInfo(
     @SerializedName("cto") val cto: String,
     @SerializedName("coo") val coo: String,
     @SerializedName("cto_propulsion") val ctoPropulsion: String,
-    @SerializedName("valuation") val valuation: Int,
+    @SerializedName("valuation") val valuation: Long,
     @SerializedName("headquarters") val headquarters: Headquarters,
     @SerializedName("summary") val summary: String
 )
