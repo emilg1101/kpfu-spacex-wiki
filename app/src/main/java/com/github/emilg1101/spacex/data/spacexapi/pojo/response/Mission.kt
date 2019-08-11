@@ -7,8 +7,8 @@ data class Mission(
     @SerializedName("mission_id") val missionId: String,
     @SerializedName("manufacturers") val manufacturers: List<String>,
     @SerializedName("payload_ids") val payloadIds: List<String>,
-    @SerializedName("wikipedia") val wikipedia: String,
-    @SerializedName("website") val website: String,
-    @SerializedName("twitter") val twitter: String,
+    @SerializedName("wikipedia") val wikipedia: String?,
+    @SerializedName("website") val website: String?,
+    @SerializedName("twitter") val twitter: String?,
     @SerializedName("description") val description: String
 )

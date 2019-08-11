@@ -1,8 +1,8 @@
 package com.github.emilg1101.spacex.presentation.ui.main.container.wiki.missions.mission
 
-import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.arellomobile.mvp.InjectViewState
 import com.github.emilg1101.spacex.presentation.ExternalLinkScreen
+import com.github.emilg1101.spacex.presentation.base.BasePresenter
 import com.github.emilg1101.spacex.presentation.model.MissionModel
 import com.github.emilg1101.spacex.presentation.model.PayloadMissionItemModel
 import com.github.emilg1101.spacex.presentation.ui.main.container.wiki.payloads.payload.PayloadScreen
@@ -21,7 +21,7 @@ class MissionPresenter @Inject constructor(@MissionQualifier val missionId: Stri
             "F3364BF",
             "Iridium NEXT",
             "Orbital ATK",
-            arrayListOf(
+            listOf(
                 PayloadMissionItemModel("Iridium NEXT 1"),
                 PayloadMissionItemModel("Iridium NEXT 2"),
                 PayloadMissionItemModel("Iridium NEXT 3"),
