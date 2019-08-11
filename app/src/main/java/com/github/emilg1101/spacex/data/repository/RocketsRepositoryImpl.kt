@@ -13,7 +13,8 @@ class RocketsRepositoryImpl @Inject constructor() : RocketsRepository {
     lateinit var api: SpaceXApiRequest
 
     override fun getRocket(id: String): Single<Rocket> {
-        TODO("not implemented")
+        return api.getRocketById(id)
+            .map(RocketMapper::map)
     }
 
     override fun getRockets(): Single<List<Rocket>> {
