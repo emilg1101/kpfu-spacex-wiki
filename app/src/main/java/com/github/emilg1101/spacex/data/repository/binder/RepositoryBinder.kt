@@ -1,8 +1,10 @@
 package com.github.emilg1101.spacex.data.repository.binder
 
+import com.github.emilg1101.spacex.data.repository.CapsulesRepositoryImpl
 import com.github.emilg1101.spacex.data.repository.CompanyInfoRepositoryImpl
 import com.github.emilg1101.spacex.data.repository.LaunchesRepositoryImpl
 import com.github.emilg1101.spacex.data.repository.TimelineRepositoryImpl
+import com.github.emilg1101.spacex.domain.repository.CapsulesRepository
 import com.github.emilg1101.spacex.domain.repository.CompanyInfoRepository
 import com.github.emilg1101.spacex.domain.repository.LaunchesRepository
 import com.github.emilg1101.spacex.domain.repository.TimelineRepository
@@ -20,4 +22,7 @@ abstract class RepositoryBinder {
 
     @Binds
     abstract fun bindCompanyInfoRepository(companyInfoRepositoryImpl: CompanyInfoRepositoryImpl): CompanyInfoRepository
+
+    @Binds
+    abstract fun bindCapsulesRepository(capsulesRepositoryImpl: CapsulesRepositoryImpl): CapsulesRepository
 }

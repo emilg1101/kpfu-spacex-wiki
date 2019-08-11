@@ -54,4 +54,7 @@ interface SpaceXApiRequest {
 
     @GET("launches/{flight_number}")
     fun getLaunch(@Path("flight_number") flightNumber: Int): Single<Launch>
+
+    @GET("capsules/{capsule_serial}")
+    fun getCapsuleBySerial(@Path("capsule_serial") capsuleSerial: String): Single<Capsule>
 }
