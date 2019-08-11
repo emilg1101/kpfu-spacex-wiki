@@ -11,6 +11,7 @@ import com.github.emilg1101.spacex.presentation.adapter.MissionPayloadsAdapter
 import com.github.emilg1101.spacex.presentation.base.BaseFragment
 import com.github.emilg1101.spacex.presentation.base.HasToolbar
 import com.github.emilg1101.spacex.presentation.model.PayloadMissionItemModel
+import com.github.emilg1101.spacex.presentation.util.ifNotBlankOrEmpty
 import kotlinx.android.synthetic.main.fragment_mission.*
 import kotlinx.android.synthetic.main.layout_toolbar.toolbar
 import javax.inject.Inject
@@ -59,20 +60,26 @@ class MissionFragment : BaseFragment(), MissionView, HasToolbar {
     }
 
     override fun setWikipediaLink(link: String) {
-        chip_wikipedia.setOnClickListener {
-            presenter.openLink(link)
+        link.ifNotBlankOrEmpty { link ->
+            chip_wikipedia.setOnClickListener {
+                presenter.openLink(link)
+            }
         }
     }
 
     override fun setWebsiteLink(link: String) {
-        chip_website.setOnClickListener {
-            presenter.openLink(link)
+        link.ifNotBlankOrEmpty { link ->
+            chip_website.setOnClickListener {
+                presenter.openLink(link)
+            }
         }
     }
 
     override fun setTwitterLink(link: String) {
-        chip_twitter.setOnClickListener {
-            presenter.openLink(link)
+        link.ifNotBlankOrEmpty { link ->
+            chip_twitter.setOnClickListener {
+                presenter.openLink(link)
+            }
         }
     }
 

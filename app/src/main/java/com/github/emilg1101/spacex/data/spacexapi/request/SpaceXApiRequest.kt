@@ -57,4 +57,7 @@ interface SpaceXApiRequest {
 
     @GET("capsules/{capsule_serial}")
     fun getCapsuleBySerial(@Path("capsule_serial") capsuleSerial: String): Single<Capsule>
+
+    @GET("missions/{mission_id}")
+    fun getMissionById(@Path("mission_id") missionId: String): Single<Mission>
 }
