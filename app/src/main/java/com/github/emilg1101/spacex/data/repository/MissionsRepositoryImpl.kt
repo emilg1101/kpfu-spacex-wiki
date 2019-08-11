@@ -13,7 +13,8 @@ class MissionsRepositoryImpl @Inject constructor(): MissionsRepository {
     lateinit var api: SpaceXApiRequest
 
     override fun getMissionById(id: String): Single<Mission> {
-        TODO("not implemented")
+        return api.getMissionById(id)
+            .map(MissionMapper::map)
     }
 
     override fun getMissions(): Single<List<Mission>> {
